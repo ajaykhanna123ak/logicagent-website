@@ -4,202 +4,572 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logic Agent | Professional Freelancing Services</title>
-    <meta name="description" content="Expert Data Science, Web App Development, and AI Solutions by Logic Agent.">
-    <link rel="stylesheet" href="index.css">
+    <title>Logic Agent — AI Systems Engineering &amp; LLM Consulting</title>
+    <meta name="description"
+        content="Logic Agent designs and ships production-grade AI systems: multi-agent workflows, RAG pipelines, and the cloud infrastructure to run them reliably at scale.">
+    <link rel="canonical" href="https://logicagent.co/">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://logicagent.co/">
+    <meta property="og:site_name" content="Logic Agent">
+    <meta property="og:title" content="Logic Agent — AI Systems Engineering &amp; LLM Consulting">
+    <meta property="og:description"
+        content="Production-grade AI systems: multi-agent workflows, RAG pipelines, and the cloud infrastructure to run them reliably at scale.">
+    <meta property="og:image" content="https://logicagent.co/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Logic Agent — AI Systems Engineering &amp; LLM Consulting">
+    <meta name="twitter:description"
+        content="Production-grade AI systems: multi-agent workflows, RAG pipelines, and the cloud infrastructure to run them reliably at scale.">
+    <meta name="twitter:image" content="https://logicagent.co/assets/og-image.png">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Logic Agent",
+      "url": "https://logicagent.co/",
+      "email": "contactus@logicagent.co",
+      "telephone": "+1-469-618-7796",
+      "description": "AI systems engineering and LLM consulting. Multi-agent workflows, RAG pipelines, and cloud-native AI product engineering.",
+      "areaServed": ["US", "IN"],
+      "knowsAbout": ["Large Language Models", "Retrieval-Augmented Generation", "Multi-agent systems", "MLOps", "Cloud architecture"]
+    }
+    </script>
 </head>
 
 <body>
-    <div id="mouse-trailer"></div>
-    <canvas id="bg-canvas"></canvas>
-    <div class="scroll-progress-container">
-        <div class="scroll-progress-bar"></div>
-    </div>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <img src="assets/logo.png" alt="Logic Agent Logo">
-                </a>
-                <ul class="nav-links">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
+            <a href="#" class="brand" aria-label="Logic Agent — home">
+                <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <path d="M20 3.6 34.2 11.8v16.4L20 36.4 5.8 28.2V11.8z" stroke="currentColor" stroke-width="1.4"
+                        stroke-linejoin="round" opacity=".35" />
+                    <path d="M13.4 27.2 20 12.6l6.6 14.6" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M16.2 21.6h7.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="20" cy="12.6" r="2.6" fill="var(--accent)" />
+                    <circle cx="13.4" cy="27.2" r="2.2" fill="var(--accent)" opacity=".8" />
+                    <circle cx="26.6" cy="27.2" r="2.2" fill="var(--accent)" opacity=".8" />
+                </svg>
+                <span class="brand-word">Logic<strong>Agent</strong></span>
+            </a>
+
+            <nav class="site-nav" id="site-nav" aria-label="Primary">
+                <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#work">Work</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-consult>Book a consult</a>
             </nav>
+
+            <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav"
+                aria-label="Open menu">
+                <span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <main>
+    <main id="main">
+        <!-- ───────────────────────── Hero ───────────────────────── -->
         <section class="hero">
-            <div class="container">
-                <div class="hero-content" data-reveal>
-                    <h1>Logic Agent</h1>
-                    <p class="hero-subline" id="typewriter-text"
-                        data-text="Building production-grade AI systems using LLMs, agents, and scalable cloud architecture.">
-                        Building production-grade AI systems using LLMs, agents, and scalable cloud architecture.
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow" data-reveal>AI Systems Engineering</p>
+                    <h1 data-reveal>Production‑grade AI, <span class="accent-text">engineered to ship.</span></h1>
+                    <p class="lead" data-reveal>
+                        We design and build LLM and multi-agent systems — and the cloud architecture that keeps them
+                        fast, observable, and cost-controlled once real users arrive.
                     </p>
-                    <div class="authority-bar">
-                        <div class="signal">
-                            <span class="signal-icon">🕒</span>
-                            <span class="signal-text">6+ Years Experience</span>
-                        </div>
-                        <div class="signal">
-                            <span class="signal-icon">🌍</span>
-                            <span class="signal-text">Built AI Systems in USA & India</span>
-                        </div>
-                        <div class="signal">
-                            <span class="signal-icon">🚀</span>
-                            <span class="signal-text">30+ Projects Delivered</span>
-                        </div>
+                    <div class="hero-actions" data-reveal>
+                        <a href="#contact" class="btn btn-primary" data-consult>Book a consult</a>
+                        <a href="#work" class="btn btn-ghost">See selected work</a>
                     </div>
-                    <a href="#contact" class="cta-button">Book a Consult</a>
+
+                    <dl class="stat-row" data-reveal>
+                        <div class="stat">
+                            <dt>Years building</dt>
+                            <dd>10<span>+</span></dd>
+                        </div>
+                        <div class="stat">
+                            <dt>Projects delivered</dt>
+                            <dd>30<span>+</span></dd>
+                        </div>
+                        <div class="stat">
+                            <dt>Delivery regions</dt>
+                            <dd>US<span> &amp; IN</span></dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="hero-visual" data-reveal aria-hidden="true">
+                    <div class="visual-card">
+                        <div class="visual-card-bar">
+                            <span></span><span></span><span></span>
+                            <p>agent-pipeline.yaml</p>
+                        </div>
+                        <svg class="pipeline" viewBox="0 0 560 372" fill="none" role="presentation">
+                            <defs>
+                                <linearGradient id="nodeFill" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="var(--node-fill-a)" />
+                                    <stop offset="100%" stop-color="var(--node-fill-b)" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- connectors: sources -> orchestrator -->
+                            <g class="wires" stroke="var(--wire)" stroke-width="1.5" fill="none">
+                                <path d="M164 66h26c12 0 20 8 20 20v34" />
+                                <path d="M164 126h46" />
+                                <path d="M164 186h26c12 0 20-8 20-20v-34" />
+                                <path d="M354 126h26c12 0 20-8 20-20V70h-4" />
+                                <path d="M354 132h50" />
+                                <path d="M354 138h26c12 0 20 8 20 20v28h4" />
+                                <path d="M280 190v46h-90v34" stroke-dasharray="4 5" opacity=".55" />
+                                <path d="M280 236h90v34" stroke-dasharray="4 5" opacity=".55" />
+                            </g>
+                            <g class="pulses" stroke="var(--accent)" stroke-width="1.5" fill="none"
+                                stroke-linecap="round">
+                                <path d="M164 66h26c12 0 20 8 20 20v34" />
+                                <path d="M164 126h46" />
+                                <path d="M164 186h26c12 0 20-8 20-20v-34" />
+                                <path d="M354 126h26c12 0 20-8 20-20V70h-4" />
+                                <path d="M354 132h50" />
+                                <path d="M354 138h26c12 0 20 8 20 20v28h4" />
+                            </g>
+
+                            <!-- left column -->
+                            <g class="node">
+                                <rect x="24" y="46" width="140" height="40" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <circle cx="44" cy="66" r="3.5" fill="var(--accent)" />
+                                <text x="60" y="70">Documents</text>
+                            </g>
+                            <g class="node">
+                                <rect x="24" y="106" width="140" height="40" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <circle cx="44" cy="126" r="3.5" fill="var(--accent)" />
+                                <text x="60" y="130">Vector store</text>
+                            </g>
+                            <g class="node">
+                                <rect x="24" y="166" width="140" height="40" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <circle cx="44" cy="186" r="3.5" fill="var(--accent)" />
+                                <text x="60" y="190">Systems &amp; APIs</text>
+                            </g>
+
+                            <!-- orchestrator -->
+                            <g class="node node-primary">
+                                <rect x="210" y="86" width="144" height="92" rx="14" fill="var(--accent-soft)"
+                                    stroke="var(--accent-line)" />
+                                <text x="230" y="119" class="node-title">Orchestrator</text>
+                                <text x="230" y="141" class="node-sub">Planning · routing</text>
+                                <text x="230" y="159" class="node-sub">Tool calls · memory</text>
+                            </g>
+
+                            <!-- right column -->
+                            <g class="node">
+                                <rect x="404" y="50" width="132" height="40" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <text x="424" y="74">Tools</text>
+                            </g>
+                            <g class="node">
+                                <rect x="404" y="112" width="132" height="40" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <text x="424" y="136">Guardrails</text>
+                            </g>
+                            <g class="node">
+                                <rect x="404" y="174" width="132" height="40" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <text x="424" y="198">Response</text>
+                            </g>
+
+                            <!-- observability rail -->
+                            <g class="node">
+                                <rect x="100" y="270" width="180" height="44" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <text x="120" y="291" class="node-sub-strong">Evaluation</text>
+                                <text x="120" y="306" class="node-sub">Accuracy · regressions</text>
+                            </g>
+                            <g class="node">
+                                <rect x="300" y="270" width="180" height="44" rx="10" fill="url(#nodeFill)"
+                                    stroke="var(--hairline)" />
+                                <text x="320" y="291" class="node-sub-strong">Observability</text>
+                                <text x="320" y="306" class="node-sub">Latency · tokens · cost</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-strip">
+                <div class="container">
+                    <p class="strip-label">Built with</p>
+                    <ul class="strip-list">
+                        <li>LangGraph</li>
+                        <li>FastAPI</li>
+                        <li>Kubernetes</li>
+                        <li>Azure</li>
+                        <li>AWS</li>
+                        <li>Terraform</li>
+                        <li>Pinecone</li>
+                        <li>Postgres</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="services">
+        <!-- ───────────────────────── Services ───────────────────────── -->
+        <section id="services" class="section">
             <div class="container">
-                <h2 data-reveal>Expertise & Services</h2>
-                <div class="services-grid">
-                    <!-- AI Agents & GenAI -->
-                    <div class="service-category" data-reveal>
-                        <div class="category-header">
-                            <span class="cat-icon">🤖</span>
-                            <h3>AI Agents & Production GenAI Systems</h3>
-                        </div>
-                        <ul class="service-list">
-                            <li>Multi-agent workflows (LangGraph-based)</li>
-                            <li>Retrieval-Augmented Generation (RAG) pipelines</li>
-                            <li>Vector DB integration (Pinecone / FAISS / Weaviate)</li>
-                            <li>End-to-end LLM system design</li>
-                            <li>Evaluation & Guardrails (Prompt eval, hallucination control)</li>
-                            <li>Token optimization & cost control</li>
-                            <li>LLM orchestration & tool usage</li>
-                            <li>Autonomous workflow automation</li>
-                            <li>Enterprise knowledge search systems</li>
-                            <li>LLM observability & monitoring</li>
-                        </ul>
-                    </div>
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Capabilities</p>
+                    <h2>Three practices, one delivery team</h2>
+                    <p class="section-sub">Most engagements start in one and grow into the next — from a proof of
+                        concept, to a system in production, to the data work that keeps improving it.</p>
+                </header>
 
-                    <!-- Cloud-Native AI Product Engineering -->
-                    <div class="service-category" data-reveal>
-                        <div class="category-header">
-                            <span class="cat-icon">☁️</span>
-                            <h3>Cloud-Native AI Product Engineering</h3>
+                <div class="card-grid cols-3">
+                    <article class="card" data-reveal>
+                        <div class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="8" width="16" height="12" rx="3" />
+                                <path d="M12 4v4M9 14h.01M15 14h.01M2 12v3M22 12v3" />
+                            </svg>
                         </div>
-                        <ul class="service-list">
-                            <li>Scalable backend systems (FastAPI, Node, Django)</li>
-                            <li>Microservices & API design</li>
-                            <li>Docker & Kubernetes</li>
-                            <li>CI/CD (Azure DevOps, GitHub Actions)</li>
-                            <li>Cloud deployment (AWS, Azure, GCP)</li>
-                            <li>Infrastructure as Code (Terraform)</li>
-                            <li>Web development, app development</li>
+                        <h3>AI Agents &amp; GenAI Systems</h3>
+                        <p>LLM applications that hold up outside the demo — grounded in your data, measured, and
+                            guarded against the failure modes that surface in production.</p>
+                        <ul class="chips">
+                            <li>Multi-agent workflows</li>
+                            <li>RAG pipelines</li>
+                            <li>Vector search</li>
+                            <li>Evals &amp; guardrails</li>
+                            <li>Tool calling</li>
+                            <li>Token &amp; cost control</li>
+                            <li>LLM observability</li>
+                            <li>Knowledge search</li>
                         </ul>
-                    </div>
+                    </article>
 
-                    <!-- Data Intelligence & AI Research -->
-                    <div class="service-category" data-reveal>
-                        <div class="category-header">
-                            <span class="cat-icon">📊</span>
-                            <h3>Data Intelligence & AI Research</h3>
+                    <article class="card" data-reveal>
+                        <div class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6.5 18a4.5 4.5 0 0 1-.6-8.96 6 6 0 0 1 11.5 1.2A3.9 3.9 0 0 1 17.5 18z" />
+                                <path d="M12 12v6M9.5 15.5 12 18l2.5-2.5" />
+                            </svg>
                         </div>
-                        <ul class="service-list">
-                            <li>EDA & advanced analytics</li>
-                            <li>Predictive modeling</li>
+                        <h3>Cloud-Native Product Engineering</h3>
+                        <p>The unglamorous half that decides whether an AI feature survives launch: services, pipelines,
+                            deployment, and infrastructure you can hand to a team.</p>
+                        <ul class="chips">
+                            <li>FastAPI · Node · Django</li>
+                            <li>Microservices &amp; APIs</li>
+                            <li>Docker · Kubernetes</li>
+                            <li>CI/CD</li>
+                            <li>AWS · Azure · GCP</li>
+                            <li>Terraform</li>
+                            <li>Web &amp; app builds</li>
+                        </ul>
+                    </article>
+
+                    <article class="card" data-reveal>
+                        <div class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 20V10M10 20V4M16 20v-7M22 20V8" />
+                                <path d="M2 20h20" />
+                            </svg>
+                        </div>
+                        <h3>Data Intelligence &amp; Research</h3>
+                        <p>Evidence before opinion. Modelling, experimentation, and benchmarking that tell you which
+                            approach is actually worth building.</p>
+                        <ul class="chips">
+                            <li>EDA &amp; analytics</li>
+                            <li>Predictive modelling</li>
                             <li>NLP pipelines</li>
-                            <li>Data engineering workflows</li>
-                            <li>A/B testing & experimentation</li>
-                            <li>AI research & benchmarking</li>
+                            <li>Data engineering</li>
+                            <li>A/B testing</li>
+                            <li>Model benchmarking</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="clients" class="clients-section">
+        <!-- ───────────────────────── Process ───────────────────────── -->
+        <section id="process" class="section section-alt">
             <div class="container">
-                <div class="clients-layout">
-                    <div class="clients-text" data-reveal>
-                        <h2>Who I Work With</h2>
-                        <ul class="client-list">
-                            <li><strong>Startups</strong> building AI products</li>
-                            <li><strong>Enterprises</strong> modernizing with LLMs</li>
-                            <li><strong>Founders</strong> validating AI MVPs</li>
-                            <li><strong>CTOs</strong> needing AI architecture</li>
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">How we work</p>
+                    <h2>A short path from idea to production</h2>
+                    <p class="section-sub">No open-ended discovery. Each phase ends in something you can review, run,
+                        or hand to your team.</p>
+                </header>
+
+                <ol class="steps">
+                    <li class="step" data-reveal>
+                        <span class="step-num">01</span>
+                        <h3>Scope</h3>
+                        <p>A working session on the problem, data, and constraints. You leave with an architecture and a
+                            fixed-scope proposal.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step-num">02</span>
+                        <h3>Prototype</h3>
+                        <p>A narrow end-to-end slice on your real data, with an evaluation set — so the decision to
+                            continue is based on numbers.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step-num">03</span>
+                        <h3>Build</h3>
+                        <p>Production hardening: infrastructure, CI/CD, guardrails, cost controls, and the tests that
+                            keep quality from drifting.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step-num">04</span>
+                        <h3>Hand over</h3>
+                        <p>Documentation, dashboards, and a walkthrough with your engineers. Ongoing support is optional,
+                            never a dependency.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ───────────────────────── Work ───────────────────────── -->
+        <section id="work" class="section">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Selected work</p>
+                    <h2>Systems running in production</h2>
+                    <p class="section-sub">Client names withheld under NDA. Happy to walk through the architecture and
+                        trade-offs on a call.</p>
+                </header>
+
+                <div class="card-grid cols-2">
+                    <article class="case" data-reveal>
+                        <p class="case-tag">Enterprise · Support operations</p>
+                        <h3>Knowledge RAG over 200K+ documents</h3>
+                        <p class="case-body">A retrieval layer across scattered internal documentation, surfaced where
+                            support agents already work rather than in yet another tool.</p>
+                        <div class="metric">
+                            <strong>40%</strong>
+                            <span>reduction in ticket resolution time</span>
+                        </div>
+                        <ul class="case-facts">
+                            <li>Hybrid retrieval with reranking</li>
+                            <li>Slack bot + embedded web UI</li>
+                            <li>AWS, autoscaled</li>
                         </ul>
-                    </div>
-                    <div class="cta-box" data-reveal>
-                        <h3>Ready to build your AI-powered product?</h3>
-                        <a href="#contact" class="cta-button">Let's build together</a>
-                    </div>
+                    </article>
+
+                    <article class="case" data-reveal>
+                        <p class="case-tag">Product · Research automation</p>
+                        <h3>Multi-agent research assistant</h3>
+                        <p class="case-body">A LangGraph orchestration where planning, web search, and summarisation
+                            agents hand work between each other under an explicit state machine.</p>
+                        <div class="metric metric-text">
+                            <strong>Typed state machine</strong>
+                            <span>every hand-off between agents is explicit and replayable</span>
+                        </div>
+                        <ul class="case-facts">
+                            <li>Search &amp; summarisation agents</li>
+                            <li>Structured tool calling</li>
+                            <li>Azure Kubernetes Service</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 data-reveal>Selected AI Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card" data-reveal>
-                        <div class="project-header">
-                            <span class="project-tag">Case Study</span>
-                            <h3>Enterprise Knowledge RAG System</h3>
-                        </div>
-                        <ul class="project-details">
-                            <li>Built RAG over <strong>200K+ documents</strong></li>
-                            <li>Reduced support ticket resolution time by <strong>40%</strong></li>
-                            <li>Integrated with Slack + web UI</li>
-                            <li>Hosted on AWS with autoscaling</li>
-                        </ul>
-                    </div>
-                    <div class="project-card" data-reveal>
-                        <div class="project-header">
-                            <span class="project-tag">Case Study</span>
-                            <h3>Multi-Agent Research Assistant</h3>
-                        </div>
-                        <ul class="project-details">
-                            <li>LangGraph orchestration</li>
-                            <li>Web search + summarization agents</li>
-                            <li>Tool-calling LLMs</li>
-                            <li>Deployed via Azure Kubernetes</li>
-                        </ul>
-                    </div>
+        <!-- ───────────────────────── Clients + CTA ───────────────────────── -->
+        <section id="clients" class="section section-alt">
+            <div class="container clients-grid">
+                <div data-reveal>
+                    <p class="eyebrow">Who we work with</p>
+                    <h2>Teams betting on AI, not experimenting with it</h2>
+                    <ul class="client-list">
+                        <li><strong>Startups</strong> shipping their first AI product</li>
+                        <li><strong>Enterprises</strong> modernising workflows with LLMs</li>
+                        <li><strong>Founders</strong> validating an AI MVP before raising</li>
+                        <li><strong>CTOs</strong> who need an architecture they can defend</li>
+                    </ul>
                 </div>
+                <aside class="cta-panel" data-reveal>
+                    <h3>Ready to build your AI-powered product?</h3>
+                    <p>A 30-minute call is usually enough to tell you whether the idea is a weekend prototype or a
+                        quarter of engineering.</p>
+                    <a href="#contact" class="btn btn-primary" data-consult>Let's build together</a>
+                </aside>
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <!-- ───────────────────────── Contact ───────────────────────── -->
+        <section id="contact" class="section contact">
             <div class="container">
-                <div class="contact-container">
-                    <h2 data-reveal>Book a Consult</h2>
-                    <p data-reveal>Let's build your AI-powered product together.</p>
-                    <div class="contact-info">
-                        <div class="contact-item" data-reveal>
-                            <a href="mailto:contactus@logicagent.co">contactus@logicagent.co</a>
-                        </div>
-                        <div class="contact-item" data-reveal>
-                            <a href="tel:+14696187796">+1 469-618-7796</a>
-                        </div>
+                <div class="contact-inner" data-reveal>
+                    <p class="eyebrow">Get in touch</p>
+                    <h2>Book a consult</h2>
+                    <p class="section-sub">Tell us what you're building and where it's stuck. We reply within one
+                        business day.</p>
+                    <p class="contact-cta-wrap"><button type="button" class="btn btn-primary" data-consult>Start a project brief</button></p>
+                    <div class="contact-links">
+                        <a class="contact-link" href="mailto:contactus@logicagent.co">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                                <path d="m3.5 7 8.5 6 8.5-6" />
+                            </svg>
+                            <span>
+                                <small>Email</small>
+                                contactus@logicagent.co
+                            </span>
+                        </a>
+                        <a class="contact-link" href="tel:+14696187796">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M5 3.5h3l1.6 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.7 2 2 0 0 1 5 3.5" />
+                            </svg>
+                            <span>
+                                <small>Phone</small>
+                                +1 469-618-7796
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Logic Agent. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <path d="M20 3.6 34.2 11.8v16.4L20 36.4 5.8 28.2V11.8z" stroke="currentColor" stroke-width="1.4"
+                        stroke-linejoin="round" opacity=".35" />
+                    <path d="M13.4 27.2 20 12.6l6.6 14.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M16.2 21.6h7.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="20" cy="12.6" r="2.6" fill="var(--accent)" />
+                </svg>
+                <span class="brand-word">Logic<strong>Agent</strong></span>
             </div>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#work">Work</a>
+                <a href="mailto:contactus@logicagent.co">Email</a>
+            </nav>
+            <p class="copyright">&copy; 2026 Logic Agent. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="index.js"></script>
+
+    <!-- ───────────────────────── Consult modal ───────────────────────── -->
+    <dialog class="modal" id="consult-modal" aria-labelledby="consult-title">
+        <div class="modal-panel">
+            <button type="button" class="modal-close" id="consult-close" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    aria-hidden="true">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
+            </button>
+
+            <div class="modal-body" id="consult-body">
+                <p class="eyebrow">Book a consult</p>
+                <h2 id="consult-title">Tell us about your project</h2>
+                <p class="modal-sub">A few details is all we need. We reply within one business day — usually with a
+                    first read on scope and feasibility.</p>
+
+                <form class="consult-form" id="consult-form" novalidate>
+                    <!-- Honeypot: hidden from people, tempting to bots. -->
+                    <div class="hp" aria-hidden="true">
+                        <label for="company-website">Company website</label>
+                        <input type="text" id="company-website" name="_honey" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="cf-name">Name <span aria-hidden="true">*</span></label>
+                            <input type="text" id="cf-name" name="name" autocomplete="name" required
+                                aria-describedby="err-name">
+                            <p class="field-error" id="err-name" hidden>Please enter your name.</p>
+                        </div>
+                        <div class="field">
+                            <label for="cf-email">Work email <span aria-hidden="true">*</span></label>
+                            <input type="email" id="cf-email" name="email" autocomplete="email" required
+                                aria-describedby="err-email">
+                            <p class="field-error" id="err-email" hidden>Please enter a valid email address.</p>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="cf-company">Company <span class="optional">optional</span></label>
+                            <input type="text" id="cf-company" name="company" autocomplete="organization">
+                        </div>
+                        <div class="field">
+                            <label for="cf-topic">What do you need?</label>
+                            <select id="cf-topic" name="topic">
+                                <option>AI agents / GenAI system</option>
+                                <option>RAG or knowledge search</option>
+                                <option>Cloud &amp; product engineering</option>
+                                <option>Data science / research</option>
+                                <option>Not sure yet</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="cf-message">Project details <span aria-hidden="true">*</span></label>
+                        <textarea id="cf-message" name="message" rows="5" required aria-describedby="err-message"
+                            placeholder="What are you building, what's the current state, and where is it stuck?"></textarea>
+                        <p class="field-error" id="err-message" hidden>Please add a few details about the project.</p>
+                    </div>
+
+                    <p class="form-status" id="consult-status" role="status" aria-live="polite"></p>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-primary" id="consult-submit">Send enquiry</button>
+                        <p class="modal-note">Goes straight to <a
+                                href="mailto:contactus@logicagent.co">contactus@logicagent.co</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-success" id="consult-success" hidden>
+                <div class="success-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="m4.5 12.5 5 5 10-11" />
+                    </svg>
+                </div>
+                <h2>Thanks — that's on its way</h2>
+                <p id="consult-success-note">We'll come back to you at the address you gave, usually within one
+                    business day.</p>
+                <button type="button" class="btn btn-ghost" data-close-modal>Close</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="index.js" defer></script>
 </body>
 
 </html>

@@ -1,172 +1,274 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 0. Mark JS as enabled for animations
+(() => {
+    'use strict';
+
+    /* ------------------------------------------------------------------
+     * Consult form delivery.
+     *
+     * GitHub Pages serves static files only, so the send is handled by a
+     * form backend. FormSubmit posts the submission straight to
+     * CONTACT_EMAIL — no account needed, but the address must be confirmed
+     * once: the first submission triggers an activation email to
+     * contactus@logicagent.co, and delivery starts after that link is
+     * clicked. Enquiry details pass through formsubmit.co.
+     *
+     * To move to a different provider, change FORM_ENDPOINT only, e.g.
+     *   Formspree   'https://formspree.io/f/<your-form-id>'
+     *   Web3Forms   'https://api.web3forms.com/submit'  (add your access_key)
+     * ------------------------------------------------------------------ */
+    const CONTACT_EMAIL = 'contactus@logicagent.co';
+    const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + CONTACT_EMAIL;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.body.classList.add('js-enabled');
 
-    /* 1. Reveal animations using IntersectionObserver */
-    const revealElements = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    /* 2. Scroll Progress Bar */
-    const progressBar = document.querySelector('.scroll-progress-bar');
-    if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-        });
-    }
-
-    /* 3. Mouse Trailer */
-    const trailer = document.getElementById('mouse-trailer');
-    if (trailer) {
-        window.addEventListener('mousemove', e => {
-            const x = e.clientX - trailer.offsetWidth / 2,
-                y = e.clientY - trailer.offsetHeight / 2;
-
-            trailer.animate({
-                transform: `translate(${x}px, ${y}px)`
-            }, {
-                duration: 800,
-                fill: "forwards"
+    /* ---------- Reveal on scroll ---------- */
+    const revealTargets = document.querySelectorAll('[data-reveal]');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealTargets.forEach(el => el.classList.add('is-visible'));
+    } else {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (!entry.isIntersecting) return;
+                // Small stagger for siblings entering together.
+                entry.target.style.transitionDelay = `${Math.min(i, 4) * 70}ms`;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             });
-            trailer.style.opacity = "1";
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+        revealTargets.forEach(el => observer.observe(el));
+    }
+
+    /* ---------- Header state + scroll progress ---------- */
+    const header = document.getElementById('site-header');
+    const progress = document.querySelector('.scroll-progress span');
+    let ticking = false;
+
+    function onScroll() {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        header.classList.toggle('is-scrolled', y > 12);
+
+        if (progress) {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = max > 0 ? `${(y / max) * 100}%` : '0%';
+        }
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(onScroll);
+    }, { passive: true });
+    onScroll();
+
+    /* ---------- Mobile navigation ---------- */
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+
+    function closeNav() {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+    }
+
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+
+        nav.addEventListener('click', (e) => {
+            if (e.target.closest('a')) closeNav();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+                closeNav();
+                toggle.focus();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 760) closeNav();
         });
     }
 
-    /* 4. Typewriter Effect */
-    const typewriter = document.getElementById('typewriter-text');
-    if (typewriter) {
-        const textToType = typewriter.getAttribute('data-text');
-        typewriter.textContent = ''; // Clear initial text
-        let idx = 0;
-        function type() {
-            if (idx < textToType.length) {
-                typewriter.textContent += textToType.charAt(idx);
-                idx++;
-                setTimeout(type, 30);
-            }
-        }
-        setTimeout(type, 1000);
-    }
+    /* ---------- Consult modal ---------- */
+    const modal = document.getElementById('consult-modal');
+    const form = document.getElementById('consult-form');
 
-    /* 5. Magnetic CTA Buttons */
-    const magneticElements = document.querySelectorAll('.cta-button, .logo, .service-category, .project-card');
-    magneticElements.forEach(item => {
-        item.addEventListener('mousemove', (e) => {
-            const pos = item.getBoundingClientRect();
-            const x = e.clientX - pos.left - pos.width / 2;
-            const y = e.clientY - pos.top - pos.height / 2;
+    if (modal && form && typeof modal.showModal === 'function') {
+        const body = document.getElementById('consult-body');
+        const success = document.getElementById('consult-success');
+        const successNote = document.getElementById('consult-success-note');
+        const statusEl = document.getElementById('consult-status');
+        const submitBtn = document.getElementById('consult-submit');
+        let lastFocused = null;
 
-            item.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            if (trailer) {
-                trailer.style.transform = `scale(3)`;
-                trailer.style.background = "rgba(100, 255, 218, 0.3)";
-            }
-        });
+        const fields = [
+            { input: document.getElementById('cf-name'), error: document.getElementById('err-name') },
+            { input: document.getElementById('cf-email'), error: document.getElementById('err-email') },
+            { input: document.getElementById('cf-message'), error: document.getElementById('err-message') }
+        ];
 
-        item.addEventListener('mouseleave', () => {
-            item.style.transform = 'translate(0px, 0px)';
-            if (trailer) {
-                trailer.style.transform = `scale(1)`;
-                trailer.style.background = "var(--accent-color)";
-            }
-        });
-    });
-
-    /* 6. Background Particle System */
-    const canvas = document.getElementById('bg-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function initCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
+        function clearErrors() {
+            fields.forEach(({ input, error }) => {
+                input.removeAttribute('aria-invalid');
+                error.hidden = true;
+            });
+            statusEl.textContent = '';
+            statusEl.style.color = '';
         }
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(100, 255, 218, 0.15)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function handleParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-                for (let j = i; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 100) {
-                        ctx.strokeStyle = 'rgba(100, 255, 218, 0.05)';
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
+        function validate() {
+            let firstBad = null;
+            fields.forEach(({ input, error }) => {
+                const bad = input.type === 'email'
+                    ? !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value.trim())
+                    : input.value.trim().length < 2;
+                if (bad) {
+                    input.setAttribute('aria-invalid', 'true');
+                } else {
+                    input.removeAttribute('aria-invalid');
                 }
-            }
+                error.hidden = !bad;
+                if (bad && !firstBad) firstBad = input;
+            });
+            if (firstBad) firstBad.focus();
+            return !firstBad;
         }
 
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 80; i++) {
-                particles.push(new Particle());
-            }
+        function openModal(trigger) {
+            lastFocused = trigger || document.activeElement;
+            clearErrors();
+            body.hidden = false;
+            success.hidden = true;
+            modal.showModal();
+            document.body.classList.add('modal-open');
+            // Focus the first field rather than the close button.
+            requestAnimationFrame(() => fields[0].input.focus());
         }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            handleParticles();
-            requestAnimationFrame(animate);
+        function closeModal() {
+            modal.close();
         }
 
-        window.addEventListener('resize', initCanvas);
-        initCanvas();
-        animate();
-    }
+        modal.addEventListener('close', () => {
+            document.body.classList.remove('modal-open');
+            if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+        });
 
-    /* Smooth scroll for navigation links */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        // Clicking the backdrop (outside the panel) closes the dialog.
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.getElementById('consult-close').addEventListener('click', closeModal);
+        modal.querySelectorAll('[data-close-modal]').forEach(b => b.addEventListener('click', closeModal));
+
+        document.querySelectorAll('[data-consult]').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(trigger);
+            });
+        });
+
+        function payloadFrom(data) {
+            return {
+                name: (data.get('name') || '').trim(),
+                email: (data.get('email') || '').trim(),
+                company: (data.get('company') || '').trim(),
+                topic: data.get('topic') || '',
+                message: (data.get('message') || '').trim()
+            };
+        }
+
+        function showSuccess(note) {
+            if (note) successNote.textContent = note;
+            body.hidden = true;
+            success.hidden = false;
+            form.reset();
+            success.querySelector('h2').setAttribute('tabindex', '-1');
+            success.querySelector('h2').focus();
+        }
+
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
+            clearErrors();
+
+            // Honeypot filled in → silently accept and drop.
+            if (form.elements['_honey'].value) {
+                showSuccess();
+                return;
+            }
+            if (!validate()) return;
+
+            const p = payloadFrom(new FormData(form));
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            try {
+                const res = await fetch(FORM_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        name: p.name,
+                        email: p.email,
+                        company: p.company || '—',
+                        topic: p.topic,
+                        message: p.message,
+                        _subject: `Consult enquiry — ${p.name}${p.company ? ' (' + p.company + ')' : ''}`,
+                        _template: 'table',
+                        _captcha: 'false'
+                    })
                 });
+                if (!res.ok) throw new Error('Request failed: ' + res.status);
+                // FormSubmit answers 200 even for rejected posts; check the body.
+                const data = await res.json().catch(() => ({}));
+                if (data.success === false || data.success === 'false') {
+                    throw new Error(data.message || 'Submission rejected');
+                }
+                showSuccess();
+            } catch (err) {
+                statusEl.textContent = 'That didn\'t send. Please email ' + CONTACT_EMAIL + ' directly — or try again in a moment.';
+                statusEl.style.color = '#dc2626';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send enquiry';
             }
         });
+
+        // Clear a field's error as soon as it's being corrected.
+        fields.forEach(({ input, error }) => {
+            input.addEventListener('input', () => {
+                if (input.hasAttribute('aria-invalid')) {
+                    input.removeAttribute('aria-invalid');
+                    error.hidden = true;
+                }
+            });
+        });
+    }
+
+    /* ---------- Anchor scrolling that respects motion preference ---------- */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        // Consult CTAs open the modal instead of scrolling.
+        if (link.hasAttribute('data-consult')) return;
+        link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href');
+            if (id === '#') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+                return;
+            }
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            // Keep keyboard focus in sync with the visual jump.
+            target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+        });
     });
-});
+})();

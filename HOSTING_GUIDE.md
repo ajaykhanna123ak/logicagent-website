@@ -36,3 +36,43 @@ Once DNS propagates (can take up to 24 hours), go back to GitHub Pages settings 
 
 ---
 **Your site will then be live at https://logicagent.co!**
+
+---
+
+## Consult form: where enquiries go
+
+The **Book a consult** buttons open a modal form that submits over AJAX and emails the
+enquiry to you. Delivery is configured by two constants at the top of `index.js`:
+
+```js
+const CONTACT_EMAIL = 'contactus@logicagent.co';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + CONTACT_EMAIL;
+```
+
+### One-time activation (required)
+
+GitHub Pages serves static files only, so the actual sending is done by FormSubmit.
+It needs no account, but the destination address must be confirmed once:
+
+1. Submit the form yourself after deploying.
+2. FormSubmit emails an activation link to `contactus@logicagent.co`.
+3. Click it. Every submission after that is delivered straight to the inbox.
+
+Until that link is clicked, submissions are held rather than delivered.
+
+### What gets sent
+
+`name`, `email`, `company`, `topic`, `message`, plus a subject line built from the
+sender's name and company. The visitor's address becomes the reply-to, so replying to the
+notification answers them directly. Enquiry details pass through **formsubmit.co** — if you
+would rather not route them via a third party, swap `FORM_ENDPOINT` for another provider:
+
+- `https://formspree.io/f/<your-form-id>` — free tier, dashboard, spam filtering.
+- `https://api.web3forms.com/submit` — needs an `access_key` field in the payload.
+- Any endpoint of your own that accepts a JSON POST and returns 2xx.
+
+### Spam handling
+
+A hidden honeypot field (`_honey`) is checked both client-side and by FormSubmit; bots that
+fill it get a silent no-op. If the request fails, the form tells the visitor to email
+`contactus@logicagent.co` directly rather than failing silently.
