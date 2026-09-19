@@ -1505,13 +1505,7 @@ body.modal-open {
     gap: 18px;
 }
 
-.flow-canvas {
-    border: 1px solid var(--hairline);
-    border-radius: var(--radius-lg);
-    background: var(--surface);
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
-}
+
 
 .flow-canvas-bar {
     display: flex;
@@ -1826,9 +1820,11 @@ body.modal-open {
 }
 
 .flow-canvas {
-    background: #120d20;
-    border-color: rgba(255, 255, 255, .1);
-    box-shadow: 0 24px 50px -36px rgba(0, 0, 0, .9);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
 }
 
 /* The hero diagram keeps its own dark card on the light page above */
@@ -1875,4 +1871,49 @@ body.modal-open {
     background: rgba(255, 255, 255, .06);
     border-color: var(--accent-line);
     box-shadow: 0 0 0 3px rgba(133, 170, 255, .1);
+}
+
+
+/* ============================ Node colour coding ============================
+   Colour carries meaning rather than decoration: teal starts a flow, blue is
+   an agent, green is a gate or a landing point, violet is an attached tool,
+   amber is a stop. Node bodies stay uniform so the icons do the signalling.
+   ========================================================================= */
+:root {
+    --fl-trig: #2fd8a8;
+    --fl-agent: #7ea6ff;
+    --fl-logic: #5fd35f;
+    --fl-tool: #a775ff;
+    --fl-out: #9fb0d0;
+    --fl-warn-ico: #e8bb62;
+}
+
+.fnode-chip {
+    fill: rgba(255, 255, 255, .05);
+    stroke: rgba(255, 255, 255, .1);
+}
+
+.fnode-trig .fnode-ico { color: var(--fl-trig); }
+.fnode-agent .fnode-ico { color: var(--fl-agent); }
+.fnode-logic .fnode-ico { color: var(--fl-logic); }
+.fnode-out .fnode-ico { color: var(--fl-out); }
+.fnode-warn .fnode-ico { color: var(--fl-warn-ico); }
+
+.fnode-trig .fnode-chip { fill: rgba(47, 216, 168, .13); stroke: rgba(47, 216, 168, .34); }
+.fnode-agent .fnode-chip { fill: rgba(126, 166, 255, .15); stroke: rgba(126, 166, 255, .4); }
+.fnode-logic .fnode-chip { fill: rgba(95, 211, 95, .13); stroke: rgba(95, 211, 95, .32); }
+.fnode-warn .fnode-chip { fill: rgba(232, 187, 98, .14); stroke: rgba(232, 187, 98, .36); }
+
+/* Attached tools and models read as one family, like n8n's sub-nodes */
+.forb-ring {
+    fill: rgba(167, 117, 255, .1);
+    stroke: rgba(167, 117, 255, .34);
+}
+
+.forb-ico {
+    color: var(--fl-tool);
+}
+
+.fpill-ico {
+    color: var(--fl-agent);
 }
