@@ -39,7 +39,7 @@
     --shadow-lg: 0 30px 60px -34px rgba(16, 24, 40, .32);
     --shadow-accent: 0 10px 22px -12px rgba(37, 99, 235, .55);
 
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
     --radius: 14px;
@@ -132,25 +132,27 @@ h1,
 h2,
 h3 {
     color: var(--heading);
-    font-weight: 700;
-    letter-spacing: -.025em;
-    line-height: 1.14;
+    font-weight: 600;
+    letter-spacing: -.018em;
+    line-height: 1.2;
     text-wrap: balance;
 }
 
 h1 {
-    font-size: clamp(2.3rem, 4.2vw, 3.35rem);
-    line-height: 1.06;
-    letter-spacing: -.035em;
+    font-size: clamp(2.3rem, 4.2vw, 3.3rem);
+    font-weight: 500;
+    line-height: 1.14;
+    letter-spacing: -.022em;
 }
 
 h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+    font-weight: 500;
 }
 
 h3 {
-    font-size: 1.18rem;
-    letter-spacing: -.015em;
+    font-size: 1.15rem;
+    letter-spacing: -.012em;
 }
 
 p {
@@ -420,16 +422,16 @@ p {
 
 .stat dd {
     font-size: 1.65rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--heading);
     letter-spacing: -.03em;
     font-variant-numeric: tabular-nums;
 }
 
 .stat dd span {
-    color: var(--accent);
+    color: var(--text-faint);
     font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* Hero visual */
@@ -1794,4 +1796,59 @@ body.modal-open {
         grid-template-columns: 1fr;
         gap: 26px;
     }
+}
+
+
+/* ============================ Canvas surfaces ============================
+   The diagrams read as a product surface rather than page furniture, so
+   they run dark against the light page — the way an editor canvas does.
+   Tokens are re-declared locally, so the SVGs need no changes.
+   ======================================================================= */
+.flow-canvas,
+.visual-card {
+    --fl-node: #191324;
+    --fl-chip: #241d33;
+    --fl-line: rgba(255, 255, 255, .14);
+    --fl-line-strong: rgba(255, 255, 255, .28);
+    --fl-dot: rgba(255, 255, 255, .08);
+    --fl-warn-bg: rgba(237, 199, 122, .13);
+    --fl-warn-line: rgba(237, 199, 122, .45);
+
+    --node-fill-a: rgba(255, 255, 255, .07);
+    --node-fill-b: rgba(255, 255, 255, .02);
+    --wire: rgba(255, 255, 255, .16);
+    --hairline: rgba(255, 255, 255, .09);
+
+    --heading: #f4f2fa;
+    --text: #d8d4e4;
+    --text-muted: #a9a2bd;
+    --text-faint: #8f88a6;
+
+    --accent: #7ea6ff;
+    --accent-soft: rgba(126, 166, 255, .15);
+    --accent-line: rgba(126, 166, 255, .52);
+
+    background: #0f0a1a;
+    border-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 30px 70px -45px rgba(15, 10, 26, .75);
+}
+
+.flow-canvas-bar,
+.visual-card-bar {
+    background: rgba(255, 255, 255, .04);
+    border-bottom-color: rgba(255, 255, 255, .09);
+}
+
+.flow-canvas-bar span,
+.visual-card-bar span {
+    background: rgba(255, 255, 255, .18);
+}
+
+.flow-canvas-bar p,
+.visual-card-bar p {
+    color: #8f88a6;
+}
+
+.fnode-warn .fnode-ico {
+    color: #e8bb62;
 }
