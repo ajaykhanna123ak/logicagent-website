@@ -95,6 +95,43 @@
         });
     }
 
+    /* ---------- Use-case flow tabs ---------- */
+    const tablist = document.querySelector('.flow-rail');
+    if (tablist) {
+        const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+
+        function select(tab, focus = true) {
+            tabs.forEach(t => {
+                const on = t === tab;
+                t.classList.toggle('is-active', on);
+                t.setAttribute('aria-selected', String(on));
+                t.tabIndex = on ? 0 : -1;
+                document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+            });
+            if (focus) tab.focus();
+        }
+
+        tablist.addEventListener('click', (e) => {
+            const tab = e.target.closest('[role="tab"]');
+            if (tab) select(tab, false);
+        });
+
+        // Arrow-key navigation, per the WAI-ARIA tabs pattern.
+        tablist.addEventListener('keydown', (e) => {
+            const i = tabs.indexOf(document.activeElement);
+            if (i === -1) return;
+            const last = tabs.length - 1;
+            let next = null;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = i === last ? 0 : i + 1;
+            else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = i === 0 ? last : i - 1;
+            else if (e.key === 'Home') next = 0;
+            else if (e.key === 'End') next = last;
+            if (next === null) return;
+            e.preventDefault();
+            select(tabs[next]);
+        });
+    }
+
     /* ---------- Consult modal ---------- */
     const modal = document.getElementById('consult-modal');
     const form = document.getElementById('consult-form');

@@ -71,6 +71,7 @@
             <nav class="site-nav" id="site-nav" aria-label="Primary">
                 <ul>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#use-cases">Use cases</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#work">Work</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -313,6 +314,423 @@
             </div>
         </section>
 
+
+        <!-- ───────────────────────── Use cases ───────────────────────── -->
+        <section id="use-cases" class="section section-alt">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Use cases</p>
+                    <h2>What we could build for your team</h2>
+                    <p class="section-sub">Pick a team and see the shape of the system. Same building blocks
+                        every time &mdash; a trigger, an agent with its model and tools, a decision, and somewhere
+                        the answer lands.</p>
+                </header>
+
+                <div class="flowlab" data-reveal>
+                    <div class="flow-rail" role="tablist" aria-orientation="vertical" aria-label="Use cases by team">
+                        <button class="rail-item is-active" role="tab" id="tab-support"
+                            aria-selected="true" aria-controls="panel-support" tabindex="0">
+                            <span class="rail-role">Support teams <em>can</em></span>
+                            <span class="rail-task">Answer repeat tickets without anyone writing them</span>
+                        </button>
+                        <button class="rail-item" role="tab" id="tab-ops"
+                            aria-selected="false" aria-controls="panel-ops" tabindex="-1">
+                            <span class="rail-role">Ops teams <em>can</em></span>
+                            <span class="rail-task">Turn inbound paperwork into structured records</span>
+                        </button>
+                        <button class="rail-item" role="tab" id="tab-sales"
+                            aria-selected="false" aria-controls="panel-sales" tabindex="-1">
+                            <span class="rail-role">Sales teams <em>can</em></span>
+                            <span class="rail-task">Walk into every call already briefed</span>
+                        </button>
+                        <button class="rail-item" role="tab" id="tab-everyone"
+                            aria-selected="false" aria-controls="panel-everyone" tabindex="-1">
+                            <span class="rail-role">Everyone can</span>
+                            <span class="rail-task">Ask the company what it already knows</span>
+                        </button>
+                    </div>
+                    <div class="flow-stage">
+                    <div class="flow-panel" id="panel-support" role="tabpanel"
+                        aria-labelledby="tab-support">
+                        <div class="flow-canvas">
+                            <div class="flow-canvas-bar">
+                                <span></span><span></span><span></span>
+                                <p>support-agent.flow</p>
+                            </div>
+                            <div class="flow-scroll">
+                                <svg class="flow-svg" viewBox="0 0 1000 470" role="img" aria-label="Workflow: a ticket arrives, a triage agent using a chat model, your docs and an order API either drafts a cited reply or escalates to a person, then a human approves" preserveAspectRatio="xMidYMid meet">
+                                  <defs>
+                                    <pattern id="fl-grid-support" width="22" height="22" patternUnits="userSpaceOnUse">
+                                      <circle cx="1.5" cy="1.5" r="1.1" fill="var(--fl-dot)"/>
+                                    </pattern>
+                                    <marker id="fl-arrow-support" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </marker>
+                                  </defs>
+                                  <rect width="1000" height="470" fill="url(#fl-grid-support)"/>
+                                  <g class="fhang" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.5" stroke-dasharray="5 6">
+                                    <path d="M338.0 134 C338.0 214, 138.0 222, 138.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 338.0 222, 338.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 538.0 222, 538.0 285"/>
+                                  </g>
+                                  <g class="fwires" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" marker-end="url(#fl-arrow-support)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" marker-end="url(#fl-arrow-support)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" marker-end="url(#fl-arrow-support)"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-support)"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-support)"/>
+                                  </g>
+                                  <g class="fpulse" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" style="animation-delay:-0.00s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" style="animation-delay:-0.55s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" style="animation-delay:-1.10s"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" style="animation-delay:-1.65s"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" style="animation-delay:-2.20s"/>
+                                  </g>
+                                  <text class="fport" x="440" y="36.0">confident</text>
+                                  <text class="fport" x="440" y="178.0">unsure</text>
+                                  <g class="fnode">
+                                    <rect x="20" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="33" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(36,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h4.5l1.5 2.5h4l1.5-2.5H20M5 13l2-7h10l2 7v5a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></g></g>
+                                    <text class="fnode-t" x="74" y="98">Ticket arrives</text>
+                                    <text class="fnode-s" x="74" y="115">Email · Zendesk</text>
+                                  </g>
+                                  <g class="fnode fnode-primary">
+                                    <rect x="252" y="70" width="172" height="64" rx="13" fill="var(--accent-soft)" stroke="var(--accent)"/>
+                                    <rect x="265" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(268,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l1.7 4.2 4.2 1.7-4.2 1.7L12 15.4l-1.7-4.2L6.1 9.5l4.2-1.7z M18.4 15.6l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></g></g>
+                                    <text class="fnode-t" x="306" y="98">Triage agent</text>
+                                    <text class="fnode-s" x="306" y="115">Intent + urgency</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="14" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="31" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,34)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8zM14 3.5V8h4.5M9 13.5h6M9 17h4"/></g></g>
+                                    <text class="fnode-t" x="538" y="42">Draft reply</text>
+                                    <text class="fnode-s" x="538" y="59">Grounded, cited</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="126" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="143" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,146)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 19.5v-1.4a3.4 3.4 0 0 0-3.4-3.4H7.4A3.4 3.4 0 0 0 4 18.1v1.4 M9.75 11.3a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8 M20 19.5v-1.4a3.4 3.4 0 0 0-2.5-3.3 M15.2 4.7a3.4 3.4 0 0 1 0 6.6"/></g></g>
+                                    <text class="fnode-t" x="538" y="154">Escalate</text>
+                                    <text class="fnode-s" x="538" y="171">Straight to a person</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="716" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="729" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(732,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.5 9.5 17 4 11.5"/></g></g>
+                                    <text class="fnode-t" x="770" y="98">Human approves</text>
+                                    <text class="fnode-s" x="770" y="115">One-click send</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="138.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(127.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4.5A3 3 0 0 0 6.6 8 3 3 0 0 0 5 13.4a3 3 0 0 0 2.6 4.3 2.6 2.6 0 0 0 4.4 1.8V4.9a2.6 2.6 0 0 0-2.5-.4z M14.5 4.5A3 3 0 0 1 17.4 8 3 3 0 0 1 19 13.4a3 3 0 0 1-2.6 4.3 2.6 2.6 0 0 1-4.4 1.8"/></g></g>
+                                    <text class="forb-c" x="138.0" y="358">Chat model</text><text class="forb-c" x="138.0" y="372">reasoning</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="338.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(327.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z M15.8 15.8 20.5 20.5"/></g></g>
+                                    <text class="forb-c" x="338.0" y="358">Your docs</text><text class="forb-c" x="338.0" y="372">hybrid retrieval</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="538.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(527.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5v4.5M15 3.5v4.5M6.8 8h10.4v3.2a5.2 5.2 0 0 1-10.4 0z M12 16.4v4.1"/></g></g>
+                                    <text class="forb-c" x="538.0" y="358">Order API</text><text class="forb-c" x="538.0" y="372">live status</text>
+                                  </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="flow-note">Nothing reaches a customer unreviewed. Low-confidence tickets never get a draft at all — they route to a person, which is what keeps trust in the system.</p>
+                    </div>
+                    <div class="flow-panel" id="panel-ops" role="tabpanel"
+                        aria-labelledby="tab-ops" hidden>
+                        <div class="flow-canvas">
+                            <div class="flow-canvas-bar">
+                                <span></span><span></span><span></span>
+                                <p>ops-agent.flow</p>
+                            </div>
+                            <div class="flow-scroll">
+                                <svg class="flow-svg" viewBox="0 0 1000 470" role="img" aria-label="Workflow: a document arrives, an extraction agent using a vision model, schema rules and a vendor database either posts clean data or sends flagged items to a review queue, landing in your ERP" preserveAspectRatio="xMidYMid meet">
+                                  <defs>
+                                    <pattern id="fl-grid-ops" width="22" height="22" patternUnits="userSpaceOnUse">
+                                      <circle cx="1.5" cy="1.5" r="1.1" fill="var(--fl-dot)"/>
+                                    </pattern>
+                                    <marker id="fl-arrow-ops" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </marker>
+                                  </defs>
+                                  <rect width="1000" height="470" fill="url(#fl-grid-ops)"/>
+                                  <g class="fhang" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.5" stroke-dasharray="5 6">
+                                    <path d="M338.0 134 C338.0 214, 138.0 222, 138.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 338.0 222, 338.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 538.0 222, 538.0 285"/>
+                                  </g>
+                                  <g class="fwires" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" marker-end="url(#fl-arrow-ops)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" marker-end="url(#fl-arrow-ops)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" marker-end="url(#fl-arrow-ops)"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-ops)"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-ops)"/>
+                                  </g>
+                                  <g class="fpulse" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" style="animation-delay:-0.00s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" style="animation-delay:-0.55s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" style="animation-delay:-1.10s"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" style="animation-delay:-1.65s"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" style="animation-delay:-2.20s"/>
+                                  </g>
+                                  <text class="fport" x="440" y="36.0">clean</text>
+                                  <text class="fport" x="440" y="178.0">flagged</text>
+                                  <g class="fnode">
+                                    <rect x="20" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="33" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(36,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8zM14 3.5V8h4.5M9 13.5h6M9 17h4"/></g></g>
+                                    <text class="fnode-t" x="74" y="98">Document lands</text>
+                                    <text class="fnode-s" x="74" y="115">PDF · scan · email</text>
+                                  </g>
+                                  <g class="fnode fnode-primary">
+                                    <rect x="252" y="70" width="172" height="64" rx="13" fill="var(--accent-soft)" stroke="var(--accent)"/>
+                                    <rect x="265" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(268,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l1.7 4.2 4.2 1.7-4.2 1.7L12 15.4l-1.7-4.2L6.1 9.5l4.2-1.7z M18.4 15.6l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></g></g>
+                                    <text class="fnode-t" x="306" y="98">Extraction agent</text>
+                                    <text class="fnode-s" x="306" y="115">OCR + schema</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="14" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="31" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,34)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c4.2 0 7.5 1.2 7.5 2.8S16.2 9.1 12 9.1 4.5 7.9 4.5 6.3 7.8 3.5 12 3.5z M4.5 6.3v11.4c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8V6.3 M4.5 12c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></g></g>
+                                    <text class="fnode-t" x="538" y="42">Auto-post</text>
+                                    <text class="fnode-s" x="538" y="59">Above your bar</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="126" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="143" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,146)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 19.5v-1.4a3.4 3.4 0 0 0-3.4-3.4H7.4A3.4 3.4 0 0 0 4 18.1v1.4 M9.75 11.3a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8 M20 19.5v-1.4a3.4 3.4 0 0 0-2.5-3.3 M15.2 4.7a3.4 3.4 0 0 1 0 6.6"/></g></g>
+                                    <text class="fnode-t" x="538" y="154">Review queue</text>
+                                    <text class="fnode-s" x="538" y="171">A person decides</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="716" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="729" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(732,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5v4.5M15 3.5v4.5M6.8 8h10.4v3.2a5.2 5.2 0 0 1-10.4 0z M12 16.4v4.1"/></g></g>
+                                    <text class="fnode-t" x="770" y="98">Your ERP</text>
+                                    <text class="fnode-s" x="770" y="115">Posted + audited</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="138.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(127.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4.5A3 3 0 0 0 6.6 8 3 3 0 0 0 5 13.4a3 3 0 0 0 2.6 4.3 2.6 2.6 0 0 0 4.4 1.8V4.9a2.6 2.6 0 0 0-2.5-.4z M14.5 4.5A3 3 0 0 1 17.4 8 3 3 0 0 1 19 13.4a3 3 0 0 1-2.6 4.3 2.6 2.6 0 0 1-4.4 1.8"/></g></g>
+                                    <text class="forb-c" x="138.0" y="358">Vision model</text><text class="forb-c" x="138.0" y="372">reads layout</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="338.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(327.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l7 2.8v5.5c0 4-2.8 7.2-7 8.7-4.2-1.5-7-4.7-7-8.7V6.3z M9.2 12.1l2 2 3.6-3.8"/></g></g>
+                                    <text class="forb-c" x="338.0" y="358">Schema rules</text><text class="forb-c" x="338.0" y="372">totals, dates</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="538.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(527.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c4.2 0 7.5 1.2 7.5 2.8S16.2 9.1 12 9.1 4.5 7.9 4.5 6.3 7.8 3.5 12 3.5z M4.5 6.3v11.4c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8V6.3 M4.5 12c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></g></g>
+                                    <text class="forb-c" x="538.0" y="358">Vendor master</text><text class="forb-c" x="538.0" y="372">cross-check</text>
+                                  </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="flow-note">You set the confidence bar, so you choose how much lands automatically. Every extracted field keeps a pointer back to the page it came from.</p>
+                    </div>
+                    <div class="flow-panel" id="panel-sales" role="tabpanel"
+                        aria-labelledby="tab-sales" hidden>
+                        <div class="flow-canvas">
+                            <div class="flow-canvas-bar">
+                                <span></span><span></span><span></span>
+                                <p>sales-agent.flow</p>
+                            </div>
+                            <div class="flow-scroll">
+                                <svg class="flow-svg" viewBox="0 0 1000 470" role="img" aria-label="Workflow: a meeting is booked, a research agent using web search, your CRM and past call notes produces a sourced account brief or flags thin data, delivered to your inbox" preserveAspectRatio="xMidYMid meet">
+                                  <defs>
+                                    <pattern id="fl-grid-sales" width="22" height="22" patternUnits="userSpaceOnUse">
+                                      <circle cx="1.5" cy="1.5" r="1.1" fill="var(--fl-dot)"/>
+                                    </pattern>
+                                    <marker id="fl-arrow-sales" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </marker>
+                                  </defs>
+                                  <rect width="1000" height="470" fill="url(#fl-grid-sales)"/>
+                                  <g class="fhang" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.5" stroke-dasharray="5 6">
+                                    <path d="M338.0 134 C338.0 214, 138.0 222, 138.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 338.0 222, 338.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 538.0 222, 538.0 285"/>
+                                  </g>
+                                  <g class="fwires" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" marker-end="url(#fl-arrow-sales)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" marker-end="url(#fl-arrow-sales)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" marker-end="url(#fl-arrow-sales)"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-sales)"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-sales)"/>
+                                  </g>
+                                  <g class="fpulse" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" style="animation-delay:-0.00s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" style="animation-delay:-0.55s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" style="animation-delay:-1.10s"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" style="animation-delay:-1.65s"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" style="animation-delay:-2.20s"/>
+                                  </g>
+                                  <text class="fport" x="440" y="36.0">found</text>
+                                  <text class="fport" x="440" y="178.0">thin data</text>
+                                  <g class="fnode">
+                                    <rect x="20" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="33" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(36,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6.5h14A1.5 1.5 0 0 1 20.5 8v11a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V8A1.5 1.5 0 0 1 5 6.5z M8 3.5v4M16 3.5v4M3.5 11h17"/></g></g>
+                                    <text class="fnode-t" x="74" y="98">Meeting booked</text>
+                                    <text class="fnode-s" x="74" y="115">Calendar trigger</text>
+                                  </g>
+                                  <g class="fnode fnode-primary">
+                                    <rect x="252" y="70" width="172" height="64" rx="13" fill="var(--accent-soft)" stroke="var(--accent)"/>
+                                    <rect x="265" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(268,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l1.7 4.2 4.2 1.7-4.2 1.7L12 15.4l-1.7-4.2L6.1 9.5l4.2-1.7z M18.4 15.6l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></g></g>
+                                    <text class="fnode-t" x="306" y="98">Research agent</text>
+                                    <text class="fnode-s" x="306" y="115">Plans its own steps</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="14" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="31" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,34)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8zM14 3.5V8h4.5M9 13.5h6M9 17h4"/></g></g>
+                                    <text class="fnode-t" x="538" y="42">Account brief</text>
+                                    <text class="fnode-s" x="538" y="59">With sources</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="126" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="143" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,146)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l7 2.8v5.5c0 4-2.8 7.2-7 8.7-4.2-1.5-7-4.7-7-8.7V6.3z M9.2 12.1l2 2 3.6-3.8"/></g></g>
+                                    <text class="fnode-t" x="538" y="154">Gaps flagged</text>
+                                    <text class="fnode-s" x="538" y="171">Says what it lacks</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="716" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="729" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(732,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h4.5l1.5 2.5h4l1.5-2.5H20M5 13l2-7h10l2 7v5a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></g></g>
+                                    <text class="fnode-t" x="770" y="98">In your inbox</text>
+                                    <text class="fnode-s" x="770" y="115">Before the call</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="138.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(127.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z M15.8 15.8 20.5 20.5"/></g></g>
+                                    <text class="forb-c" x="138.0" y="358">Web search</text><text class="forb-c" x="138.0" y="372">fresh signal</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="338.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(327.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c4.2 0 7.5 1.2 7.5 2.8S16.2 9.1 12 9.1 4.5 7.9 4.5 6.3 7.8 3.5 12 3.5z M4.5 6.3v11.4c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8V6.3 M4.5 12c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></g></g>
+                                    <text class="forb-c" x="338.0" y="358">Your CRM</text><text class="forb-c" x="338.0" y="372">account history</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="538.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(527.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12.5c0 3.6-3.6 6.5-8 6.5-1 0-2-.15-2.9-.42L4.5 20l1.2-3.3C4.6 15.6 4 14.1 4 12.5 4 8.9 7.6 6 12 6s8 2.9 8 6.5z"/></g></g>
+                                    <text class="forb-c" x="538.0" y="358">Call notes</text><text class="forb-c" x="538.0" y="372">what was said</text>
+                                  </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="flow-note">The agent decides which tools to call and runs them in parallel. When sources disagree it surfaces the conflict rather than averaging it away.</p>
+                    </div>
+                    <div class="flow-panel" id="panel-everyone" role="tabpanel"
+                        aria-labelledby="tab-everyone" hidden>
+                        <div class="flow-canvas">
+                            <div class="flow-canvas-bar">
+                                <span></span><span></span><span></span>
+                                <p>everyone-agent.flow</p>
+                            </div>
+                            <div class="flow-scroll">
+                                <svg class="flow-svg" viewBox="0 0 1000 470" role="img" aria-label="Workflow: a question in Slack goes to an answer agent using Confluence, Drive and Slack history, returning a cited answer or an explicit I do not know, posted back to the thread" preserveAspectRatio="xMidYMid meet">
+                                  <defs>
+                                    <pattern id="fl-grid-everyone" width="22" height="22" patternUnits="userSpaceOnUse">
+                                      <circle cx="1.5" cy="1.5" r="1.1" fill="var(--fl-dot)"/>
+                                    </pattern>
+                                    <marker id="fl-arrow-everyone" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </marker>
+                                  </defs>
+                                  <rect width="1000" height="470" fill="url(#fl-grid-everyone)"/>
+                                  <g class="fhang" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.5" stroke-dasharray="5 6">
+                                    <path d="M338.0 134 C338.0 214, 138.0 222, 138.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 338.0 222, 338.0 285"/>
+                                    <path d="M338.0 134 C338.0 214, 538.0 222, 538.0 285"/>
+                                  </g>
+                                  <g class="fwires" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" marker-end="url(#fl-arrow-everyone)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" marker-end="url(#fl-arrow-everyone)"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" marker-end="url(#fl-arrow-everyone)"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-everyone)"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" marker-end="url(#fl-arrow-everyone)"/>
+                                  </g>
+                                  <g class="fpulse" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round">
+                                    <path d="M192 102.0 C225.0 102.0, 219.0 102.0, 252 102.0" style="animation-delay:-0.00s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 46.0, 484 46.0" style="animation-delay:-0.55s"/>
+                                    <path d="M424 102.0 C457.0 102.0, 451.0 158.0, 484 158.0" style="animation-delay:-1.10s"/>
+                                    <path d="M656 46.0 C689.0 46.0, 683.0 102.0, 716 102.0" style="animation-delay:-1.65s"/>
+                                    <path d="M656 158.0 C689.0 158.0, 683.0 102.0, 716 102.0" style="animation-delay:-2.20s"/>
+                                  </g>
+                                  <text class="fport" x="440" y="36.0">grounded</text>
+                                  <text class="fport" x="440" y="178.0">no source</text>
+                                  <g class="fnode">
+                                    <rect x="20" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="33" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(36,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12.5c0 3.6-3.6 6.5-8 6.5-1 0-2-.15-2.9-.42L4.5 20l1.2-3.3C4.6 15.6 4 14.1 4 12.5 4 8.9 7.6 6 12 6s8 2.9 8 6.5z"/></g></g>
+                                    <text class="fnode-t" x="74" y="98">Question in Slack</text>
+                                    <text class="fnode-s" x="74" y="115">Plain language</text>
+                                  </g>
+                                  <g class="fnode fnode-primary">
+                                    <rect x="252" y="70" width="172" height="64" rx="13" fill="var(--accent-soft)" stroke="var(--accent)"/>
+                                    <rect x="265" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(268,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l1.7 4.2 4.2 1.7-4.2 1.7L12 15.4l-1.7-4.2L6.1 9.5l4.2-1.7z M18.4 15.6l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></g></g>
+                                    <text class="fnode-t" x="306" y="98">Answer agent</text>
+                                    <text class="fnode-s" x="306" y="115">Retrieve + reason</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="14" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="31" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,34)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.5 9.5 17 4 11.5"/></g></g>
+                                    <text class="fnode-t" x="538" y="42">Answer</text>
+                                    <text class="fnode-s" x="538" y="59">Links the source</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="484" y="126" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="497" y="143" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(500,146)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l7 2.8v5.5c0 4-2.8 7.2-7 8.7-4.2-1.5-7-4.7-7-8.7V6.3z M9.2 12.1l2 2 3.6-3.8"/></g></g>
+                                    <text class="fnode-t" x="538" y="154">“I don’t know”</text>
+                                    <text class="fnode-s" x="538" y="171">No guessing</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="716" y="70" width="172" height="64" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="729" y="87" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(732,90)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5v4.5M15 3.5v4.5M6.8 8h10.4v3.2a5.2 5.2 0 0 1-10.4 0z M12 16.4v4.1"/></g></g>
+                                    <text class="fnode-t" x="770" y="98">Back in thread</text>
+                                    <text class="fnode-s" x="770" y="115">Seconds, not hours</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="138.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(127.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8zM14 3.5V8h4.5M9 13.5h6M9 17h4"/></g></g>
+                                    <text class="forb-c" x="138.0" y="358">Confluence</text><text class="forb-c" x="138.0" y="372">wiki + specs</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="338.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(327.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c4.2 0 7.5 1.2 7.5 2.8S16.2 9.1 12 9.1 4.5 7.9 4.5 6.3 7.8 3.5 12 3.5z M4.5 6.3v11.4c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8V6.3 M4.5 12c0 1.6 3.3 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></g></g>
+                                    <text class="forb-c" x="338.0" y="358">Drive</text><text class="forb-c" x="338.0" y="372">docs + sheets</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="538.0" cy="312" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(527.0,301)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 19.5v-1.4a3.4 3.4 0 0 0-3.4-3.4H7.4A3.4 3.4 0 0 0 4 18.1v1.4 M9.75 11.3a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8 M20 19.5v-1.4a3.4 3.4 0 0 0-2.5-3.3 M15.2 4.7a3.4 3.4 0 0 1 0 6.6"/></g></g>
+                                    <text class="forb-c" x="538.0" y="358">Slack history</text><text class="forb-c" x="538.0" y="372">tribal knowledge</text>
+                                  </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="flow-note">Permissions are enforced at retrieval, so people only ever see what they already have access to. Stale pages get down-ranked instead of quietly misleading everyone.</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ───────────────────────── Process ───────────────────────── -->
         <section id="process" class="section section-alt">
             <div class="container">
@@ -398,6 +816,7 @@
             </div>
         </section>
 
+
         <!-- ───────────────────────── Clients + CTA ───────────────────────── -->
         <section id="clients" class="section section-alt">
             <div class="container clients-grid">
@@ -473,6 +892,7 @@
             </div>
             <nav class="footer-nav" aria-label="Footer">
                 <a href="#services">Services</a>
+                <a href="#use-cases">Use cases</a>
                 <a href="#process">Process</a>
                 <a href="#work">Work</a>
                 <a href="mailto:contactus@logicagent.co">Email</a>
