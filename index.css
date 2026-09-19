@@ -1583,19 +1583,19 @@ body.modal-open {
 /* The dense flow packs more in, so scale its type back up to stay legible
    once the wider viewBox is fitted to the same container. */
 .flow-svg[data-dense] .fnode-t {
-    font-size: 16.5px;
+    font-size: 18px;
 }
 
 .flow-svg[data-dense] .fnode-s {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .flow-svg[data-dense] .forb-c {
-    font-size: 12.5px;
+    font-size: 14.5px;
 }
 
 .flow-svg[data-dense] .fport {
-    font-size: 11.5px;
+    font-size: 13.5px;
 }
 
 .forb-ico {
@@ -1799,49 +1799,81 @@ body.modal-open {
 }
 
 
-/* ============================ Canvas surfaces ============================
-   The diagrams read as a product surface rather than page furniture, so
-   they run dark against the light page — the way an editor canvas does.
-   Tokens are re-declared locally, so the SVGs need no changes.
-   ======================================================================= */
-.flow-canvas,
+/* ============================ Dark band ============================
+   The use-case section runs as a full-bleed dark band. The canvases sit
+   slightly lifted from it, so they read as part of the section rather
+   than as an image dropped onto a light page.
+   ================================================================== */
+.section-dark {
+    --heading: #f5f3fb;
+    --text: #dbd7e8;
+    --text-muted: #aaa3be;
+    --text-faint: #8f88a6;
+
+    --surface: rgba(255, 255, 255, .045);
+    --surface-hover: rgba(255, 255, 255, .07);
+    --hairline: rgba(255, 255, 255, .1);
+    --hairline-strong: rgba(255, 255, 255, .2);
+
+    --accent: #85aaff;
+    --accent-strong: #a8c4ff;
+    --accent-soft: rgba(133, 170, 255, .14);
+    --accent-line: rgba(133, 170, 255, .45);
+
+    --card-bar-bg: rgba(255, 255, 255, .05);
+    --shadow-sm: none;
+    --shadow-md: 0 24px 50px -34px rgba(0, 0, 0, .85);
+
+    background: #0b0716;
+    color: var(--text);
+}
+
+/* Canvas tokens: one step lifted from the band it sits in */
+.section-dark .flow-canvas,
 .visual-card {
     --fl-node: #191324;
     --fl-chip: #241d33;
     --fl-line: rgba(255, 255, 255, .14);
-    --fl-line-strong: rgba(255, 255, 255, .28);
-    --fl-dot: rgba(255, 255, 255, .08);
+    --fl-line-strong: rgba(255, 255, 255, .3);
+    --fl-dot: rgba(255, 255, 255, .075);
     --fl-warn-bg: rgba(237, 199, 122, .13);
     --fl-warn-line: rgba(237, 199, 122, .45);
 
     --node-fill-a: rgba(255, 255, 255, .07);
     --node-fill-b: rgba(255, 255, 255, .02);
     --wire: rgba(255, 255, 255, .16);
-    --hairline: rgba(255, 255, 255, .09);
+}
 
+.section-dark .flow-canvas {
+    background: #120d20;
+    border-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 24px 50px -36px rgba(0, 0, 0, .9);
+}
+
+/* The hero diagram keeps its own dark card on the light page above */
+.visual-card {
     --heading: #f4f2fa;
-    --text: #d8d4e4;
     --text-muted: #a9a2bd;
     --text-faint: #8f88a6;
-
     --accent: #7ea6ff;
     --accent-soft: rgba(126, 166, 255, .15);
     --accent-line: rgba(126, 166, 255, .52);
+    --hairline: rgba(255, 255, 255, .09);
 
-    background: #0f0a1a;
+    background: #120d20;
     border-color: rgba(255, 255, 255, .1);
-    box-shadow: 0 30px 70px -45px rgba(15, 10, 26, .75);
+    box-shadow: 0 34px 70px -45px rgba(15, 10, 26, .7);
 }
 
 .flow-canvas-bar,
 .visual-card-bar {
-    background: rgba(255, 255, 255, .04);
+    background: var(--card-bar-bg, rgba(255, 255, 255, .05));
     border-bottom-color: rgba(255, 255, 255, .09);
 }
 
 .flow-canvas-bar span,
 .visual-card-bar span {
-    background: rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .2);
 }
 
 .flow-canvas-bar p,
@@ -1851,4 +1883,15 @@ body.modal-open {
 
 .fnode-warn .fnode-ico {
     color: #e8bb62;
+}
+
+/* Rail sits on the band, not on a white card */
+.section-dark .rail-item:hover {
+    background: rgba(255, 255, 255, .05);
+}
+
+.section-dark .rail-item.is-active {
+    background: rgba(255, 255, 255, .06);
+    border-color: var(--accent-line);
+    box-shadow: 0 0 0 3px rgba(133, 170, 255, .1);
 }
