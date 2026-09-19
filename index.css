@@ -1404,12 +1404,20 @@ body.modal-open {
     --fl-line: #e2e8f4;
     --fl-line-strong: #c3cede;
     --fl-dot: #e4eaf5;
+    --fl-warn-bg: #fffaf0;
+    --fl-warn-line: #edc77a;
+}
+
+/* The canvases need more room than the default measure, so this section
+   runs to a wider container than the rest of the page. */
+.section-wide .container {
+    max-width: 1440px;
 }
 
 .flowlab {
     display: grid;
-    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
-    gap: 26px;
+    grid-template-columns: minmax(0, 270px) minmax(0, 1fr);
+    gap: 24px;
     align-items: start;
 }
 
@@ -1457,6 +1465,20 @@ body.modal-open {
     font-style: normal;
     font-weight: 400;
     color: var(--text-faint);
+}
+
+.rail-badge {
+    align-self: flex-start;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 100px;
+    padding: 3px 9px;
 }
 
 .rail-task {
@@ -1524,6 +1546,10 @@ body.modal-open {
     height: auto;
 }
 
+.flow-svg[data-dense] {
+    min-width: 1000px;
+}
+
 .fnode-t {
     font-family: var(--font);
     font-size: 14.5px;
@@ -1543,8 +1569,31 @@ body.modal-open {
     color: var(--text-muted);
 }
 
-.fnode-primary .fnode-ico {
+.fnode-primary .fnode-ico,
+.fpill-ico {
     color: var(--accent);
+}
+
+.fnode-warn .fnode-ico {
+    color: #b57f18;
+}
+
+/* The dense flow packs more in, so scale its type back up to stay legible
+   once the wider viewBox is fitted to the same container. */
+.flow-svg[data-dense] .fnode-t {
+    font-size: 16.5px;
+}
+
+.flow-svg[data-dense] .fnode-s {
+    font-size: 13px;
+}
+
+.flow-svg[data-dense] .forb-c {
+    font-size: 12.5px;
+}
+
+.flow-svg[data-dense] .fport {
+    font-size: 11.5px;
 }
 
 .forb-ico {
@@ -1596,7 +1645,7 @@ body.modal-open {
     padding-left: 2px;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1380px) {
     .flowlab {
         grid-template-columns: 1fr;
         gap: 20px;

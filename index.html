@@ -316,7 +316,7 @@
 
 
         <!-- ───────────────────────── Use cases ───────────────────────── -->
-        <section id="use-cases" class="section section-alt">
+        <section id="use-cases" class="section section-alt section-wide">
             <div class="container">
                 <header class="section-head" data-reveal>
                     <p class="eyebrow">Use cases</p>
@@ -328,8 +328,14 @@
 
                 <div class="flowlab" data-reveal>
                     <div class="flow-rail" role="tablist" aria-orientation="vertical" aria-label="Use cases by team">
-                        <button class="rail-item is-active" role="tab" id="tab-support"
-                            aria-selected="true" aria-controls="panel-support" tabindex="0">
+                        <button class="rail-item is-active" role="tab" id="tab-platform"
+                            aria-selected="true" aria-controls="panel-platform" tabindex="0">
+                            <span class="rail-role">Platform teams <em>can</em></span>
+                            <span class="rail-task">Turn a sentence in Slack into a safe infrastructure change</span>
+                            <span class="rail-badge">Most advanced</span>
+                        </button>
+                        <button class="rail-item" role="tab" id="tab-support"
+                            aria-selected="false" aria-controls="panel-support" tabindex="-1">
                             <span class="rail-role">Support teams <em>can</em></span>
                             <span class="rail-task">Answer repeat tickets without anyone writing them</span>
                         </button>
@@ -350,8 +356,173 @@
                         </button>
                     </div>
                     <div class="flow-stage">
+                    <div class="flow-panel" id="panel-platform" role="tabpanel"
+                        aria-labelledby="tab-platform">
+                        <div class="flow-canvas">
+                            <div class="flow-canvas-bar">
+                                <span></span><span></span><span></span>
+                                <p>platform-agent.flow</p>
+                            </div>
+                            <div class="flow-scroll">
+                                <svg class="flow-svg" data-dense="true" viewBox="0 0 1460 740" role="img" aria-label="Workflow: a Slack request is parsed by an intent agent with a chat model, runbooks, cluster API and incident memory; a policy gate splits read, write and destructive paths; writes are planned, validated by a self-correcting sub-agent, approved by a human, then applied or discarded" preserveAspectRatio="xMidYMid meet">
+                                  <defs>
+                                    <pattern id="fl-grid-platform" width="22" height="22" patternUnits="userSpaceOnUse">
+                                      <circle cx="1.5" cy="1.5" r="1.1" fill="var(--fl-dot)"/>
+                                    </pattern>
+                                    <marker id="fl-arrow-platform" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                                      <path d="M1 1 L9 5 L1 9" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </marker>
+                                  </defs>
+                                  <rect width="1460" height="740" fill="url(#fl-grid-platform)"/>
+                                  <g class="fhang" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.5" stroke-dasharray="5 6">
+                                    <path d="M355.0 254 C355.0 344, 169.0 395, 169.0 485"/>
+                                    <path d="M355.0 254 C355.0 344, 293.0 395, 293.0 485"/>
+                                    <path d="M355.0 254 C355.0 344, 417.0 395, 417.0 485"/>
+                                    <path d="M355.0 254 C355.0 344, 541.0 395, 541.0 485"/>
+                                    <path d="M855.0 254 C855.0 344, 855.0 506, 855.0 596"/>
+                                    <path d="M855.0 652 C855.0 742, 788.0 579, 788.0 669"/>
+                                    <path d="M855.0 652 C855.0 742, 922.0 579, 922.0 669"/>
+                                  </g>
+                                  <g class="fwires" fill="none" stroke="var(--fl-line-strong)" stroke-width="1.6">
+                                    <path d="M194 221.0 C233.6 221.0, 226.4 221.0, 266 221.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M444 221.0 C483.6 221.0, 476.4 221.0, 516 221.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M694 221.0 C733.6 221.0, 726.4 55.0, 766 55.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M694 221.0 C733.6 221.0, 726.4 221.0, 766 221.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M694 221.0 C733.6 221.0, 726.4 387.0, 766 387.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M944 55.0 C983.6 55.0, 976.4 55.0, 1016 55.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M944 221.0 C983.6 221.0, 976.4 221.0, 1016 221.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M1194 221.0 C1233.6 221.0, 1226.4 55.0, 1266 55.0" marker-end="url(#fl-arrow-platform)"/>
+                                    <path d="M1194 221.0 C1233.6 221.0, 1226.4 221.0, 1266 221.0" marker-end="url(#fl-arrow-platform)"/>
+                                  </g>
+                                  <g class="fpulse" fill="none" stroke="var(--accent)" stroke-width="1.9" stroke-linecap="round">
+                                    <path d="M194 221.0 C233.6 221.0, 226.4 221.0, 266 221.0" style="animation-delay:-0.00s"/>
+                                    <path d="M444 221.0 C483.6 221.0, 476.4 221.0, 516 221.0" style="animation-delay:-0.42s"/>
+                                    <path d="M694 221.0 C733.6 221.0, 726.4 55.0, 766 55.0" style="animation-delay:-0.84s"/>
+                                    <path d="M694 221.0 C733.6 221.0, 726.4 221.0, 766 221.0" style="animation-delay:-1.26s"/>
+                                    <path d="M694 221.0 C733.6 221.0, 726.4 387.0, 766 387.0" style="animation-delay:-1.68s"/>
+                                    <path d="M944 55.0 C983.6 55.0, 976.4 55.0, 1016 55.0" style="animation-delay:-2.10s"/>
+                                    <path d="M944 221.0 C983.6 221.0, 976.4 221.0, 1016 221.0" style="animation-delay:-2.52s"/>
+                                    <path d="M1194 221.0 C1233.6 221.0, 1226.4 55.0, 1266 55.0" style="animation-delay:-2.94s"/>
+                                    <path d="M1194 221.0 C1233.6 221.0, 1226.4 221.0, 1266 221.0" style="animation-delay:-3.36s"/>
+                                  </g>
+                                  <text class="fport" text-anchor="middle" x="730.0" y="130">read</text>
+                                  <text class="fport" text-anchor="middle" x="730.0" y="209.0">write</text>
+                                  <text class="fport" text-anchor="middle" x="730.0" y="312">destroy</text>
+                                  <text class="fport" text-anchor="middle" x="1230.0" y="130">approve</text>
+                                  <text class="fport" text-anchor="middle" x="1230.0" y="209.0">reject</text>
+                                  <g class="fnode">
+                                    <rect x="16" y="188" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="29" y="206" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(32,209)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12.5c0 3.6-3.6 6.5-8 6.5-1 0-2-.15-2.9-.42L4.5 20l1.2-3.3C4.6 15.6 4 14.1 4 12.5 4 8.9 7.6 6 12 6s8 2.9 8 6.5z"/></g></g>
+                                    <text class="fnode-t" x="70" y="217">Slack request</text>
+                                    <text class="fnode-s" x="70" y="234">“scale checkout to 6”</text>
+                                  </g>
+                                  <g class="fnode fnode-primary">
+                                    <rect x="266" y="188" width="178" height="66" rx="13" fill="var(--accent-soft)" stroke="var(--accent)"/>
+                                    <rect x="279" y="206" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(282,209)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l1.7 4.2 4.2 1.7-4.2 1.7L12 15.4l-1.7-4.2L6.1 9.5l4.2-1.7z M18.4 15.6l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></g></g>
+                                    <text class="fnode-t" x="320" y="217">Intent agent</text>
+                                    <text class="fnode-s" x="320" y="234">Parse · plan · ground</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="516" y="188" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="529" y="206" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(532,209)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 10.5h11A1.5 1.5 0 0 1 19 12v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19v-7a1.5 1.5 0 0 1 1.5-1.5z M8.2 10.5V7.2a3.8 3.8 0 0 1 7.6 0v3.3"/></g></g>
+                                    <text class="fnode-t" x="570" y="217">Policy gate</text>
+                                    <text class="fnode-s" x="570" y="234">RBAC + blast radius</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="766" y="22" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="779" y="40" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(782,43)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z M15.8 15.8 20.5 20.5"/></g></g>
+                                    <text class="fnode-t" x="820" y="51">Read state</text>
+                                    <text class="fnode-s" x="820" y="68">kubectl · cloud API</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="766" y="188" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="779" y="206" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(782,209)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8v8 M6.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M6.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M17.5 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M17.5 11.5v.5c0 2.2-1.8 4-4 4h-3"/></g></g>
+                                    <text class="fnode-t" x="820" y="217">Plan the diff</text>
+                                    <text class="fnode-s" x="820" y="234">terraform plan</text>
+                                  </g>
+                                  <g class="fnode fnode-warn">
+                                    <rect x="766" y="354" width="178" height="66" rx="13" fill="var(--fl-warn-bg)" stroke="var(--fl-warn-line)"/>
+                                    <rect x="779" y="372" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(782,375)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.6 21 19.6H3z M12 10.2v4.1M12 17.1h.01"/></g></g>
+                                    <text class="fnode-t" x="820" y="383">Hard stop</text>
+                                    <text class="fnode-s" x="820" y="400">Two humans required</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="1016" y="22" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="1029" y="40" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(1032,43)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.5 9.5 17 4 11.5"/></g></g>
+                                    <text class="fnode-t" x="1070" y="51">Answer in thread</text>
+                                    <text class="fnode-s" x="1070" y="68">Read-only, instant</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="1016" y="188" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="1029" y="206" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(1032,209)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 19.5v-1.4a3.4 3.4 0 0 0-3.4-3.4H7.4A3.4 3.4 0 0 0 4 18.1v1.4 M9.75 11.3a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8 M20 19.5v-1.4a3.4 3.4 0 0 0-2.5-3.3 M15.2 4.7a3.4 3.4 0 0 1 0 6.6"/></g></g>
+                                    <text class="fnode-t" x="1070" y="217">Approval</text>
+                                    <text class="fnode-s" x="1070" y="234">Diff shown in Slack</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="1266" y="22" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="1279" y="40" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(1282,43)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5h15A1.5 1.5 0 0 1 21 6v12a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V6a1.5 1.5 0 0 1 1.5-1.5z M7.5 9.5l3 2.5-3 2.5M13.5 15h4"/></g></g>
+                                    <text class="fnode-t" x="1320" y="51">Apply</text>
+                                    <text class="fnode-s" x="1320" y="68">terraform apply</text>
+                                  </g>
+                                  <g class="fnode">
+                                    <rect x="1266" y="188" width="178" height="66" rx="13" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <rect x="1279" y="206" width="30" height="30" rx="9" fill="var(--fl-chip)" stroke="var(--fl-line)"/>
+                                    <g class="fnode-ico" transform="translate(1282,209)"><g transform="translate(0,0) scale(0.78)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l7 2.8v5.5c0 4-2.8 7.2-7 8.7-4.2-1.5-7-4.7-7-8.7V6.3z M9.2 12.1l2 2 3.6-3.8"/></g></g>
+                                    <text class="fnode-t" x="1320" y="217">Discard</text>
+                                    <text class="fnode-s" x="1320" y="234">Logged, no change</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="169.0" cy="512" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(158.0,501)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4.5A3 3 0 0 0 6.6 8 3 3 0 0 0 5 13.4a3 3 0 0 0 2.6 4.3 2.6 2.6 0 0 0 4.4 1.8V4.9a2.6 2.6 0 0 0-2.5-.4z M14.5 4.5A3 3 0 0 1 17.4 8 3 3 0 0 1 19 13.4a3 3 0 0 1-2.6 4.3 2.6 2.6 0 0 1-4.4 1.8"/></g></g>
+                                    <text class="forb-c" x="169.0" y="557">Chat model</text><text class="forb-c" x="169.0" y="571">reasoning</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="293.0" cy="512" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(282.0,501)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8zM14 3.5V8h4.5M9 13.5h6M9 17h4"/></g></g>
+                                    <text class="forb-c" x="293.0" y="557">Runbooks</text><text class="forb-c" x="293.0" y="571">your procedures</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="417.0" cy="512" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(406.0,501)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 8l-9 4.5L3 8z M3 12.5 12 17l9-4.5 M3 16.5 12 21l9-4.5"/></g></g>
+                                    <text class="forb-c" x="417.0" y="557">Cluster API</text><text class="forb-c" x="417.0" y="571">live state</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="541.0" cy="512" r="27" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(530.0,501)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18.5a8 8 0 1 1 16 0 M12 18.5l3.8-5.2"/></g></g>
+                                    <text class="forb-c" x="541.0" y="557">Incident memory</text><text class="forb-c" x="541.0" y="571">what broke before</text>
+                                  </g>
+                                  <g class="fpill">
+                                    <rect x="730.0" y="596" width="250" height="56" rx="28.0" fill="var(--accent-soft)" stroke="var(--accent-line)"/>
+                                    <g class="fnode-ico fpill-ico" transform="translate(750.0,613.0)"><g transform="translate(0,0) scale(0.9)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l1.7 4.2 4.2 1.7-4.2 1.7L12 15.4l-1.7-4.2L6.1 9.5l4.2-1.7z M18.4 15.6l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></g></g>
+                                    <text class="fnode-t" x="782.0" y="622.0">Self-correcting validator</text>
+                                    <text class="fnode-s" x="782.0" y="638.0">Re-plans on failure</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="788.0" cy="690" r="21" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(777.0,679)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l7 2.8v5.5c0 4-2.8 7.2-7 8.7-4.2-1.5-7-4.7-7-8.7V6.3z M9.2 12.1l2 2 3.6-3.8"/></g></g>
+                                    <text class="forb-c" x="788.0" y="729">Schema</text>
+                                  </g>
+                                  <g class="forb">
+                                    <circle cx="922.0" cy="690" r="21" fill="var(--fl-node)" stroke="var(--fl-line)"/>
+                                    <g class="forb-ico" transform="translate(911.0,679)"><g transform="translate(0,0) scale(0.92)" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5h15A1.5 1.5 0 0 1 21 6v12a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V6a1.5 1.5 0 0 1 1.5-1.5z M7.5 9.5l3 2.5-3 2.5M13.5 15h4"/></g></g>
+                                    <text class="forb-c" x="922.0" y="729">Dry run</text>
+                                  </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="flow-note">The hard part is not the agent — it is the guardrails around it. Permissions are checked before anything is planned, destructive actions cannot be approved by one person, every run emits traces and a diff, and the validator re-plans itself when a dry run fails. This is the shape of system we build when a mistake is expensive.</p>
+                    </div>
                     <div class="flow-panel" id="panel-support" role="tabpanel"
-                        aria-labelledby="tab-support">
+                        aria-labelledby="tab-support" hidden>
                         <div class="flow-canvas">
                             <div class="flow-canvas-bar">
                                 <span></span><span></span><span></span>
