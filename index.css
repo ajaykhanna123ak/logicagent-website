@@ -3,41 +3,41 @@
    A single light theme — no dark mode.
    ============================================================ */
 :root {
-    --bg: #ffffff;
-    --bg-alt: #f6f8fc;
-    --surface: #ffffff;
-    --surface-hover: #fbfcfe;
+    --bg: #0b0716;
+    --bg-alt: #110b20;
+    --surface: rgba(255, 255, 255, .045);
+    --surface-hover: rgba(255, 255, 255, .075);
 
-    --accent: #2563eb;
-    --accent-strong: #1b4fc4;
-    --accent-soft: rgba(37, 99, 235, .07);
-    --accent-line: rgba(37, 99, 235, .28);
+    --accent: #5b8cff;
+    --accent-strong: #8fb2ff;
+    --accent-soft: rgba(91, 140, 255, .14);
+    --accent-line: rgba(91, 140, 255, .42);
+    --on-accent: #07101f;
 
-    --heading: #0b1226;
-    --text: #3a4762;
-    --text-muted: #566483;
-    --text-faint: #6f7d97;
+    --heading: #f5f3fb;
+    --text: #dbd7e8;
+    --text-muted: #aaa3be;
+    --text-faint: #8b8399;
 
-    --hairline: #e5e9f2;
-    --hairline-strong: #d4dbe8;
-    --wire: rgba(11, 18, 38, .14);
+    --hairline: rgba(255, 255, 255, .1);
+    --hairline-strong: rgba(255, 255, 255, .2);
+    --wire: rgba(255, 255, 255, .16);
 
-    --node-fill-a: rgba(11, 18, 38, .035);
-    --node-fill-b: rgba(11, 18, 38, .012);
-    --chip-bg: #f7f9fd;
-    --header-bg: rgba(255, 255, 255, .86);
-    --strip-bg: #fafbfe;
-    --card-bar-bg: #f7f9fd;
-    --on-accent: #ffffff;
+    --node-fill-a: rgba(255, 255, 255, .07);
+    --node-fill-b: rgba(255, 255, 255, .02);
+    --chip-bg: rgba(255, 255, 255, .04);
+    --header-bg: rgba(11, 7, 22, .82);
+    --strip-bg: rgba(255, 255, 255, .02);
+    --card-bar-bg: rgba(255, 255, 255, .05);
 
-    --glow-1: rgba(37, 99, 235, .10);
-    --glow-2: rgba(37, 99, 235, .06);
-    --glow-3: rgba(37, 99, 235, .05);
+    --glow-1: rgba(91, 140, 255, .16);
+    --glow-2: rgba(124, 82, 214, .14);
+    --glow-3: rgba(91, 140, 255, .08);
 
-    --shadow-sm: 0 1px 2px rgba(16, 24, 40, .05);
-    --shadow-md: 0 10px 24px -14px rgba(16, 24, 40, .28);
-    --shadow-lg: 0 30px 60px -34px rgba(16, 24, 40, .32);
-    --shadow-accent: 0 10px 22px -12px rgba(37, 99, 235, .55);
+    --shadow-sm: none;
+    --shadow-md: 0 24px 50px -34px rgba(0, 0, 0, .85);
+    --shadow-lg: 0 40px 80px -50px rgba(0, 0, 0, .95);
+    --shadow-accent: 0 10px 26px -12px rgba(91, 140, 255, .6);
 
     --font: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -48,7 +48,7 @@
     --section-y: clamp(76px, 9vw, 128px);
     --ease: cubic-bezier(.22, .61, .36, 1);
 
-    color-scheme: light;
+    color-scheme: dark;
 }
 
 *,
@@ -768,7 +768,8 @@ p {
 }
 
 .metric-text span {
-    color: var(--text-faint);
+    /* --text-faint drops under 4.5:1 against the accent-soft panel */
+    color: var(--text-muted);
 }
 
 .case-facts {
@@ -1149,7 +1150,7 @@ p {
 }
 
 .modal::backdrop {
-    background: rgba(11, 18, 38, .55);
+    background: rgba(4, 2, 10, .72);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 }
@@ -1292,12 +1293,12 @@ p {
 
 .field input[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
-    border-color: #dc2626;
+    border-color: #ff8f8f;
 }
 
 .field-error {
     font-size: .8rem;
-    color: #dc2626;
+    color: #ff8f8f;
     margin: 0;
 }
 
@@ -1401,13 +1402,13 @@ body.modal-open {
 
 /* ============================ Use-case flow lab ============================ */
 :root {
-    --fl-node: #ffffff;
-    --fl-chip: #f3f6fc;
-    --fl-line: #e2e8f4;
-    --fl-line-strong: #c3cede;
-    --fl-dot: #e4eaf5;
-    --fl-warn-bg: #fffaf0;
-    --fl-warn-line: #edc77a;
+    --fl-node: #191324;
+    --fl-chip: #241d33;
+    --fl-line: rgba(255, 255, 255, .14);
+    --fl-line-strong: rgba(255, 255, 255, .3);
+    --fl-dot: rgba(255, 255, 255, .075);
+    --fl-warn-bg: rgba(237, 199, 122, .13);
+    --fl-warn-line: rgba(237, 199, 122, .45);
 }
 
 /* The canvases need more room than the default measure, so this section
@@ -1676,7 +1677,7 @@ body.modal-open {
 
 /* ============================ Before / After ============================ */
 .eyebrow-warn {
-    color: #b06a00;
+    color: #e8bb62;
 }
 
 .problem {
@@ -1691,7 +1692,7 @@ body.modal-open {
 }
 
 .problem:hover {
-    border-color: #edc77a;
+    border-color: rgba(237, 199, 122, .5);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
@@ -1702,9 +1703,9 @@ body.modal-open {
     display: grid;
     place-items: center;
     border-radius: 12px;
-    background: #fff8ec;
-    border: 1px solid #f0dcb0;
-    color: #b06a00;
+    background: rgba(237, 199, 122, .12);
+    border: 1px solid rgba(237, 199, 122, .35);
+    color: #e8bb62;
     margin-bottom: 20px;
 }
 
@@ -1805,31 +1806,11 @@ body.modal-open {
    than as an image dropped onto a light page.
    ================================================================== */
 .section-dark {
-    --heading: #f5f3fb;
-    --text: #dbd7e8;
-    --text-muted: #aaa3be;
-    --text-faint: #8f88a6;
-
-    --surface: rgba(255, 255, 255, .045);
-    --surface-hover: rgba(255, 255, 255, .07);
-    --hairline: rgba(255, 255, 255, .1);
-    --hairline-strong: rgba(255, 255, 255, .2);
-
-    --accent: #85aaff;
-    --accent-strong: #a8c4ff;
-    --accent-soft: rgba(133, 170, 255, .14);
-    --accent-line: rgba(133, 170, 255, .45);
-
-    --card-bar-bg: rgba(255, 255, 255, .05);
-    --shadow-sm: none;
-    --shadow-md: 0 24px 50px -34px rgba(0, 0, 0, .85);
-
-    background: #0b0716;
-    color: var(--text);
+    background: #07040f;
 }
 
 /* Canvas tokens: one step lifted from the band it sits in */
-.section-dark .flow-canvas,
+.flow-canvas,
 .visual-card {
     --fl-node: #191324;
     --fl-chip: #241d33;
@@ -1844,7 +1825,7 @@ body.modal-open {
     --wire: rgba(255, 255, 255, .16);
 }
 
-.section-dark .flow-canvas {
+.flow-canvas {
     background: #120d20;
     border-color: rgba(255, 255, 255, .1);
     box-shadow: 0 24px 50px -36px rgba(0, 0, 0, .9);
@@ -1886,11 +1867,11 @@ body.modal-open {
 }
 
 /* Rail sits on the band, not on a white card */
-.section-dark .rail-item:hover {
+.rail-item:hover {
     background: rgba(255, 255, 255, .05);
 }
 
-.section-dark .rail-item.is-active {
+.rail-item.is-active {
     background: rgba(255, 255, 255, .06);
     border-color: var(--accent-line);
     box-shadow: 0 0 0 3px rgba(133, 170, 255, .1);

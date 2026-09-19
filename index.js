@@ -270,7 +270,7 @@
                 showSuccess();
             } catch (err) {
                 statusEl.textContent = 'That didn\'t send. Please email ' + CONTACT_EMAIL + ' directly — or try again in a moment.';
-                statusEl.style.color = '#dc2626';
+                statusEl.style.color = '#ff8f8f';
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send enquiry';
