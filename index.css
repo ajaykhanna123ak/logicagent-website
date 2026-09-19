@@ -95,6 +95,10 @@ svg {
     max-width: 100%;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -1390,5 +1394,346 @@ body.modal-open {
 @media (prefers-reduced-motion: reduce) {
     .modal[open] {
         animation: none;
+    }
+}
+
+/* ============================ Use-case flow lab ============================ */
+:root {
+    --fl-node: #ffffff;
+    --fl-chip: #f3f6fc;
+    --fl-line: #e2e8f4;
+    --fl-line-strong: #c3cede;
+    --fl-dot: #e4eaf5;
+}
+
+.flowlab {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 26px;
+    align-items: start;
+}
+
+/* Left rail of teams */
+.flow-rail {
+    display: grid;
+    gap: 8px;
+}
+
+.rail-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    padding: 17px 20px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color .22s var(--ease), background .22s var(--ease),
+        box-shadow .22s var(--ease);
+}
+
+.rail-item:hover {
+    background: var(--surface);
+    border-color: var(--hairline);
+}
+
+.rail-item.is-active {
+    background: var(--surface);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-sm);
+}
+
+.rail-role {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: -.02em;
+}
+
+.rail-role em {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-faint);
+}
+
+.rail-task {
+    font-size: .9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-wrap: pretty;
+}
+
+.rail-item.is-active .rail-task {
+    color: var(--text);
+}
+
+/* Canvas */
+.flow-panel[hidden] {
+    display: none;
+}
+
+.flow-panel {
+    display: grid;
+    gap: 18px;
+}
+
+.flow-canvas {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.flow-canvas-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--card-bar-bg);
+}
+
+.flow-canvas-bar span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--hairline-strong);
+}
+
+.flow-canvas-bar p {
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-size: .71rem;
+    color: var(--text-faint);
+}
+
+/* Wide diagrams scroll inside their own box, never the page */
+.flow-scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+}
+
+.flow-svg {
+    display: block;
+    width: 100%;
+    min-width: 720px;
+    height: auto;
+}
+
+.fnode-t {
+    font-family: var(--font);
+    font-size: 14.5px;
+    font-weight: 650;
+    fill: var(--heading);
+    letter-spacing: -.012em;
+}
+
+.fnode-s {
+    font-family: var(--font);
+    font-size: 11.5px;
+    font-weight: 500;
+    fill: var(--text-faint);
+}
+
+.fnode-ico {
+    color: var(--text-muted);
+}
+
+.fnode-primary .fnode-ico {
+    color: var(--accent);
+}
+
+.forb-ico {
+    color: var(--text-muted);
+}
+
+.forb-c {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 500;
+    fill: var(--text-faint);
+    text-anchor: middle;
+}
+
+.forb-c:first-of-type {
+    font-weight: 650;
+    fill: var(--text-muted);
+}
+
+.fport {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    fill: var(--text-faint);
+}
+
+/* Signal travelling the wires */
+.fpulse path {
+    stroke-dasharray: 20 380;
+    animation: fl-flow 3.4s linear infinite;
+}
+
+@keyframes fl-flow {
+    from {
+        stroke-dashoffset: 400;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.flow-note {
+    font-size: .93rem;
+    color: var(--text-muted);
+    max-width: 82ch;
+    text-wrap: pretty;
+    padding-left: 2px;
+}
+
+@media (max-width: 980px) {
+    .flowlab {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .flow-rail {
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(230px, 1fr);
+        gap: 10px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        padding-bottom: 6px;
+    }
+
+    .rail-item {
+        border-color: var(--hairline);
+        background: var(--surface);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fpulse {
+        display: none;
+    }
+}
+
+/* ============================ Peer feedback ============================ */
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(24px, 3vw, 32px);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.quote:hover {
+    border-color: var(--accent-line);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.quote blockquote {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text);
+    text-wrap: pretty;
+    margin-bottom: 26px;
+}
+
+.quote blockquote::before {
+    content: "“";
+    display: block;
+    font-size: 2.6rem;
+    line-height: .8;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.quote figcaption {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+}
+
+.quote-avatar {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: .95rem;
+}
+
+.quote-who {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.quote-who strong {
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--heading);
+    letter-spacing: -.01em;
+}
+
+.quote-who small {
+    font-size: .82rem;
+    color: var(--text-faint);
+}
+
+/* Unmistakable while the copy is still placeholder — delete .is-placeholder
+   (and .quote-flag) from a card once a real quote is in it. */
+.quote.is-placeholder {
+    border-style: dashed;
+    border-color: var(--hairline-strong);
+    background: var(--chip-bg);
+}
+
+.quote-flag {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: .64rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #9a6b00;
+    background: #fff5db;
+    border: 1px solid #f0d99a;
+    border-radius: 100px;
+    padding: 4px 10px;
+    margin-bottom: 18px;
+}
+
+.quote.is-placeholder blockquote {
+    color: var(--text-faint);
+}
+
+@media (max-width: 960px) {
+    .quote-grid {
+        grid-template-columns: 1fr;
+        max-width: 620px;
     }
 }
