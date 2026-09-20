@@ -3,10 +3,10 @@
    A single light theme — no dark mode.
    ============================================================ */
 :root {
-    --bg: #0b0716;
-    --bg-alt: #110b20;
-    --surface: rgba(255, 255, 255, .045);
-    --surface-hover: rgba(255, 255, 255, .075);
+    --bg: #0e0918;
+    --bg-alt: #141020;
+    --surface: #1a1624;
+    --surface-hover: #221d30;
 
     --accent: #5b8cff;
     --accent-strong: #8fb2ff;
@@ -15,18 +15,18 @@
     --on-accent: #07101f;
 
     --heading: #f5f3fb;
-    --text: #dbd7e8;
-    --text-muted: #aaa3be;
-    --text-faint: #8b8399;
+    --text: #d1cece;
+    --text-muted: #a3a1a9;
+    --text-faint: #86848e;
 
-    --hairline: rgba(255, 255, 255, .1);
-    --hairline-strong: rgba(255, 255, 255, .2);
+    --hairline: rgba(255, 255, 255, .06);
+    --hairline-strong: rgba(255, 255, 255, .14);
     --wire: rgba(255, 255, 255, .16);
 
     --node-fill-a: rgba(255, 255, 255, .07);
     --node-fill-b: rgba(255, 255, 255, .02);
     --chip-bg: rgba(255, 255, 255, .04);
-    --header-bg: rgba(11, 7, 22, .82);
+    --header-bg: rgba(14, 9, 24, .82);
     --strip-bg: rgba(255, 255, 255, .02);
     --card-bar-bg: rgba(255, 255, 255, .05);
 
@@ -42,9 +42,9 @@
     --font: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --radius: 14px;
-    --radius-lg: 20px;
-    --container: 1180px;
+    --radius: 8px;
+    --radius-lg: 16px;
+    --container: 1280px;
     --section-y: clamp(76px, 9vw, 128px);
     --ease: cubic-bezier(.22, .61, .36, 1);
 
@@ -69,8 +69,8 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font);
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     font-feature-settings: "cv05" 1, "ss01" 1;
@@ -132,27 +132,25 @@ h1,
 h2,
 h3 {
     color: var(--heading);
-    font-weight: 600;
-    letter-spacing: -.018em;
+    font-weight: 400;
+    letter-spacing: -.02em;
     line-height: 1.2;
     text-wrap: balance;
 }
 
 h1 {
-    font-size: clamp(2.3rem, 4.2vw, 3.3rem);
-    font-weight: 500;
-    line-height: 1.14;
-    letter-spacing: -.022em;
+    font-size: clamp(2.6rem, 4.8vw, 3.75rem);
+    line-height: 1.02;
 }
 
 h2 {
-    font-size: clamp(1.7rem, 2.8vw, 2.35rem);
-    font-weight: 500;
+    font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+    line-height: 1.05;
 }
 
 h3 {
-    font-size: 1.15rem;
-    letter-spacing: -.012em;
+    font-size: 1.4rem;
+    line-height: 1.2;
 }
 
 p {
@@ -161,6 +159,14 @@ p {
 
 .accent-text {
     color: var(--accent-strong);
+}
+
+.hero-tagline {
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: -.01em;
+    margin-bottom: 20px;
 }
 
 .eyebrow {
@@ -173,7 +179,7 @@ p {
 }
 
 .lead {
-    font-size: clamp(1.03rem, 1.35vw, 1.16rem);
+    font-size: clamp(1.15rem, 1.5vw, 1.3rem);
     color: var(--text-muted);
     max-width: 54ch;
     margin-top: 22px;
@@ -202,8 +208,8 @@ p {
 }
 
 .section-sub {
-    margin-top: 16px;
-    font-size: 1.02rem;
+    margin-top: 18px;
+    font-size: 1.15rem;
     text-wrap: pretty;
 }
 
@@ -214,9 +220,9 @@ p {
     justify-content: center;
     gap: 8px;
     padding: 13px 26px;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: .95rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -.005em;
     border: 1px solid transparent;
     cursor: pointer;
@@ -226,7 +232,7 @@ p {
 }
 
 .btn-primary {
-    background: var(--accent);
+    background: linear-gradient(30deg, #4f7ff5, #7aa4ff);
     color: var(--on-accent);
     box-shadow: var(--shadow-accent);
 }
@@ -636,7 +642,7 @@ p {
 }
 
 .card p {
-    font-size: .95rem;
+    font-size: 1.02rem;
     margin-bottom: 22px;
     text-wrap: pretty;
 }
@@ -706,12 +712,12 @@ p {
 }
 
 .step h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
 }
 
 .step p {
-    font-size: .92rem;
+    font-size: 1rem;
     text-wrap: pretty;
 }
 
@@ -726,12 +732,12 @@ p {
 }
 
 .case h3 {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     margin-bottom: 14px;
 }
 
 .case-body {
-    font-size: .96rem;
+    font-size: 1.04rem;
     text-wrap: pretty;
 }
 
@@ -814,7 +820,7 @@ p {
 }
 
 .client-list li {
-    font-size: 1.02rem;
+    font-size: 1.12rem;
     color: var(--text-muted);
     padding: 14px 0;
     border-bottom: 1px solid var(--hairline);
@@ -840,7 +846,7 @@ p {
 }
 
 .cta-panel h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 14px;
 }
 
@@ -1458,7 +1464,7 @@ body.modal-open {
 }
 
 .rail-role {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--heading);
     letter-spacing: -.02em;
@@ -1485,7 +1491,7 @@ body.modal-open {
 }
 
 .rail-task {
-    font-size: .9rem;
+    font-size: 1rem;
     line-height: 1.5;
     color: var(--text-muted);
     text-wrap: pretty;
@@ -1504,8 +1510,6 @@ body.modal-open {
     display: grid;
     gap: 18px;
 }
-
-
 
 .flow-canvas-bar {
     display: flex;
@@ -1536,21 +1540,10 @@ body.modal-open {
     overscroll-behavior-x: contain;
 }
 
-.flow-svg {
-    display: block;
-    width: 100%;
-    min-width: 720px;
-    height: auto;
-}
-
-.flow-svg[data-dense] {
-    min-width: 1000px;
-}
-
 .fnode-t {
     font-family: var(--font);
     font-size: 14.5px;
-    font-weight: 650;
+    font-weight: 500;
     fill: var(--heading);
     letter-spacing: -.012em;
 }
@@ -1597,45 +1590,14 @@ body.modal-open {
     color: var(--text-muted);
 }
 
-.forb-c {
-    font-family: var(--font);
-    font-size: 11px;
-    font-weight: 500;
-    fill: var(--text-faint);
-    text-anchor: middle;
-}
-
 .forb-c:first-of-type {
     font-weight: 650;
     fill: var(--text-muted);
 }
 
-.fport {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    fill: var(--text-faint);
-}
-
 /* Signal travelling the wires */
-.fpulse path {
-    stroke-dasharray: 20 380;
-    animation: fl-flow 3.4s linear infinite;
-}
-
-@keyframes fl-flow {
-    from {
-        stroke-dashoffset: 400;
-    }
-
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
 .flow-note {
-    font-size: .93rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
     max-width: 82ch;
     text-wrap: pretty;
@@ -1709,12 +1671,12 @@ body.modal-open {
 }
 
 .problem h3 {
-    margin-bottom: 11px;
-    font-size: 1.12rem;
+    margin-bottom: 12px;
+    font-size: 1.35rem;
 }
 
 .problem p {
-    font-size: .94rem;
+    font-size: 1.02rem;
     text-wrap: pretty;
     margin: 0;
 }
@@ -1736,12 +1698,12 @@ body.modal-open {
 }
 
 .after-copy h3 {
-    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+    font-size: clamp(1.45rem, 2.4vw, 1.85rem);
     margin-bottom: 13px;
 }
 
 .after-copy p {
-    font-size: .96rem;
+    font-size: 1.04rem;
     text-wrap: pretty;
     margin: 0;
 }
@@ -1792,7 +1754,6 @@ body.modal-open {
         gap: 26px;
     }
 }
-
 
 /* ============================ Dark band ============================
    The use-case section runs as a full-bleed dark band. The canvases sit
@@ -1873,11 +1834,9 @@ body.modal-open {
     box-shadow: 0 0 0 3px rgba(133, 170, 255, .1);
 }
 
-
 /* ============================ Node colour coding ============================
-   Colour carries meaning rather than decoration: teal starts a flow, blue is
-   an agent, green is a gate or a landing point, violet is an attached tool,
-   amber is a stop. Node bodies stay uniform so the icons do the signalling.
+   n8n's grammar: the node is an icon square, the label lives underneath, so
+   text can never overflow its box. Colour is carried by the icon.
    ========================================================================= */
 :root {
     --fl-trig: #2fd8a8;
@@ -1888,9 +1847,36 @@ body.modal-open {
     --fl-warn-ico: #e8bb62;
 }
 
-.fnode-chip {
-    fill: rgba(255, 255, 255, .05);
-    stroke: rgba(255, 255, 255, .1);
+.fnode-box {
+    fill: #1a1624;
+    stroke: rgba(255, 255, 255, .09);
+}
+
+.fnode-primary .fnode-box {
+    fill: #1d1b33;
+    stroke: var(--accent-line);
+}
+
+.fnode-warn .fnode-box {
+    stroke: rgba(232, 187, 98, .4);
+}
+
+/* Labels sit below the node, centred */
+.fnode-t {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+    fill: #ffffff;
+    letter-spacing: -.01em;
+    text-anchor: middle;
+}
+
+.fnode-s {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 400;
+    fill: var(--text-muted);
+    text-anchor: middle;
 }
 
 .fnode-trig .fnode-ico { color: var(--fl-trig); }
@@ -1899,21 +1885,117 @@ body.modal-open {
 .fnode-out .fnode-ico { color: var(--fl-out); }
 .fnode-warn .fnode-ico { color: var(--fl-warn-ico); }
 
-.fnode-trig .fnode-chip { fill: rgba(47, 216, 168, .13); stroke: rgba(47, 216, 168, .34); }
-.fnode-agent .fnode-chip { fill: rgba(126, 166, 255, .15); stroke: rgba(126, 166, 255, .4); }
-.fnode-logic .fnode-chip { fill: rgba(95, 211, 95, .13); stroke: rgba(95, 211, 95, .32); }
-.fnode-warn .fnode-chip { fill: rgba(232, 187, 98, .14); stroke: rgba(232, 187, 98, .36); }
-
-/* Attached tools and models read as one family, like n8n's sub-nodes */
+/* Attached models and tools: one violet family, as n8n treats sub-nodes */
 .forb-ring {
-    fill: rgba(167, 117, 255, .1);
-    stroke: rgba(167, 117, 255, .34);
+    fill: #1a1624;
+    stroke: rgba(167, 117, 255, .38);
 }
 
 .forb-ico {
     color: var(--fl-tool);
 }
 
+.forb-c {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 400;
+    fill: var(--text-muted);
+    text-anchor: middle;
+}
+
+.forb-c:first-of-type {
+    fill: #ffffff;
+}
+
+.fpill-box {
+    fill: #1d1b33;
+    stroke: var(--accent-line);
+}
+
 .fpill-ico {
     color: var(--fl-agent);
+}
+
+.fpill-t,
+.fpill-s {
+    text-anchor: start;
+}
+
+.fport {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    fill: var(--text-faint);
+}
+
+/* The dense flow scales down more, so give it a touch more size */
+.flow-svg[data-dense] .fnode-t { font-size: 16px; }
+.flow-svg[data-dense] .fnode-s { font-size: 14px; }
+.flow-svg[data-dense] .forb-c { font-size: 14px; }
+.flow-svg[data-dense] .fport { font-size: 13px; }
+
+.flow-svg {
+    display: block;
+    width: 100%;
+    min-width: 720px;
+    height: auto;
+}
+
+.flow-svg[data-dense] {
+    min-width: 1000px;
+}
+
+.fpulse path {
+    stroke-dasharray: 20 380;
+    animation: fl-flow 3.4s linear infinite;
+}
+
+@keyframes fl-flow {
+    from { stroke-dashoffset: 400; }
+    to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fpulse { display: none; }
+}
+
+/* Tagline sits under the footer lockup */
+.footer-brand {
+    flex-wrap: wrap;
+}
+
+.footer-tagline {
+    flex-basis: 100%;
+    margin-left: 36px;
+    margin-top: -2px;
+    font-size: .82rem;
+    color: var(--text-faint);
+    letter-spacing: -.005em;
+}
+
+@media (max-width: 560px) {
+    .footer-tagline {
+        margin-left: 0;
+        margin-top: 4px;
+    }
+}
+
+/* Wide agent node: text sits inside, so its underside is free for attachments */
+.fnode-inline {
+    text-anchor: start;
+}
+
+.fnode-wide .fnode-box {
+    fill: #1d1b33;
+    stroke: var(--accent-line);
+}
+
+/* Port labels ride a chip so wires pass behind them, never through */
+.fport-bg {
+    fill: #0f0a1c;
+}
+
+.section-dark .fport-bg {
+    fill: #07040f;
 }
