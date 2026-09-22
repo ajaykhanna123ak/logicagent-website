@@ -5,7 +5,7 @@
 :root {
     --bg: #0e0918;
     --bg-alt: #141020;
-    --surface: #1a1624;
+    --surface: var(--node-fill);
     --surface-hover: #221d30;
 
     --accent: #5b8cff;
@@ -48,7 +48,81 @@
     --section-y: clamp(76px, 9vw, 128px);
     --ease: cubic-bezier(.22, .61, .36, 1);
 
+    --node-fill: #1a1624;
+    --node-fill-primary: #1d1b33;
+    --node-label: #ffffff;
+    --canvas-card: #120d20;
+    --canvas-chip: #0f0a1c;
+    --chip-on-canvas: #241d33;
+    --band-bg: #07040f;
+    --backdrop: rgba(4, 2, 10, .72);
+    --amber: #e8bb62;
+    --danger: #ff8f8f;
+
     color-scheme: dark;
+}
+
+/* ============================ Light theme ============================
+   Opt-in via the header toggle. The canvas goes light too — a dark
+   diagram on a light page reads as a pasted-in screenshot.
+   ==================================================================== */
+:root[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-alt: #f6f8fc;
+    --surface: #ffffff;
+    --surface-hover: #fbfcfe;
+
+    --accent: #2563eb;
+    --accent-strong: #1b4fc4;
+    --accent-soft: rgba(37, 99, 235, .07);
+    --accent-line: rgba(37, 99, 235, .28);
+    --on-accent: #ffffff;
+
+    --heading: #0b1226;
+    --text: #3a4762;
+    --text-muted: #566483;
+    --text-faint: #5d6a82;
+
+    --hairline: #e5e9f2;
+    --hairline-strong: #d4dbe8;
+    --wire: rgba(11, 18, 38, .14);
+
+    --node-fill-a: rgba(11, 18, 38, .035);
+    --node-fill-b: rgba(11, 18, 38, .012);
+    --chip-bg: #f7f9fd;
+    --header-bg: rgba(255, 255, 255, .86);
+    --strip-bg: #fafbfe;
+    --card-bar-bg: #f7f9fd;
+
+    --glow-1: rgba(37, 99, 235, .10);
+    --glow-2: rgba(37, 99, 235, .06);
+    --glow-3: rgba(37, 99, 235, .05);
+
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, .05);
+    --shadow-md: 0 10px 24px -14px rgba(16, 24, 40, .28);
+    --shadow-lg: 0 30px 60px -34px rgba(16, 24, 40, .32);
+    --shadow-accent: 0 10px 22px -12px rgba(37, 99, 235, .5);
+
+    --node-fill: #ffffff;
+    --node-fill-primary: #eef3fe;
+    --node-label: #0b1226;
+    --canvas-card: #ffffff;
+    --canvas-chip: #ffffff;
+    --chip-on-canvas: #f3f6fc;
+    --band-bg: #f6f8fc;
+    --backdrop: rgba(11, 18, 38, .5);
+    --amber: #8a5200;
+    --danger: #dc2626;
+
+    --fl-line: rgba(11, 18, 38, .13);
+    --fl-line-strong: rgba(11, 18, 38, .26);
+    --fl-dot: #e4eaf5;
+    --fl-out: #5b6b87;
+    --fl-tool: #7c3aed;
+    --fl-trig: #0d9488;
+    --fl-logic: #2f9e44;
+
+    color-scheme: light;
 }
 
 *,
@@ -232,7 +306,7 @@ p {
 }
 
 .btn-primary {
-    background: linear-gradient(30deg, #4f7ff5, #7aa4ff);
+    background: var(--cta-bg, linear-gradient(30deg, #4f7ff5, #7aa4ff));
     color: var(--on-accent);
     box-shadow: var(--shadow-accent);
 }
@@ -1156,7 +1230,7 @@ p {
 }
 
 .modal::backdrop {
-    background: rgba(4, 2, 10, .72);
+    background: var(--backdrop);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 }
@@ -1299,12 +1373,12 @@ p {
 
 .field input[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
-    border-color: #ff8f8f;
+    border-color: var(--danger);
 }
 
 .field-error {
     font-size: .8rem;
-    color: #ff8f8f;
+    color: var(--danger);
     margin: 0;
 }
 
@@ -1409,7 +1483,7 @@ body.modal-open {
 /* ============================ Use-case flow lab ============================ */
 :root {
     --fl-node: #191324;
-    --fl-chip: #241d33;
+    --fl-chip: var(--chip-on-canvas);
     --fl-line: rgba(255, 255, 255, .14);
     --fl-line-strong: rgba(255, 255, 255, .3);
     --fl-dot: rgba(255, 255, 255, .075);
@@ -1633,7 +1707,7 @@ body.modal-open {
 
 /* ============================ Before / After ============================ */
 .eyebrow-warn {
-    color: #e8bb62;
+    color: var(--amber);
 }
 
 .problem {
@@ -1661,7 +1735,7 @@ body.modal-open {
     border-radius: 12px;
     background: rgba(237, 199, 122, .12);
     border: 1px solid rgba(237, 199, 122, .35);
-    color: #e8bb62;
+    color: var(--amber);
     margin-bottom: 20px;
 }
 
@@ -1761,14 +1835,14 @@ body.modal-open {
    than as an image dropped onto a light page.
    ================================================================== */
 .section-dark {
-    background: #07040f;
+    background: var(--band-bg);
 }
 
 /* Canvas tokens: one step lifted from the band it sits in */
-.flow-canvas,
-.visual-card {
+:root:not([data-theme="light"]) .flow-canvas,
+:root:not([data-theme="light"]) .visual-card {
     --fl-node: #191324;
-    --fl-chip: #241d33;
+    --fl-chip: var(--chip-on-canvas);
     --fl-line: rgba(255, 255, 255, .14);
     --fl-line-strong: rgba(255, 255, 255, .3);
     --fl-dot: rgba(255, 255, 255, .075);
@@ -1789,7 +1863,7 @@ body.modal-open {
 }
 
 /* The hero diagram keeps its own dark card on the light page above */
-.visual-card {
+:root:not([data-theme="light"]) .visual-card {
     --heading: #f4f2fa;
     --text-muted: #a9a2bd;
     --text-faint: #8f88a6;
@@ -1797,10 +1871,12 @@ body.modal-open {
     --accent-soft: rgba(126, 166, 255, .15);
     --accent-line: rgba(126, 166, 255, .52);
     --hairline: rgba(255, 255, 255, .09);
-
-    background: #120d20;
     border-color: rgba(255, 255, 255, .1);
     box-shadow: 0 34px 70px -45px rgba(15, 10, 26, .7);
+}
+
+.visual-card {
+    background: var(--canvas-card);
 }
 
 .flow-canvas-bar,
@@ -1811,16 +1887,16 @@ body.modal-open {
 
 .flow-canvas-bar span,
 .visual-card-bar span {
-    background: rgba(255, 255, 255, .2);
+    background: var(--hairline-strong);
 }
 
 .flow-canvas-bar p,
 .visual-card-bar p {
-    color: #8f88a6;
+    color: var(--text-faint);
 }
 
 .fnode-warn .fnode-ico {
-    color: #e8bb62;
+    color: var(--amber);
 }
 
 /* Rail sits on the band, not on a white card */
@@ -1844,16 +1920,16 @@ body.modal-open {
     --fl-logic: #5fd35f;
     --fl-tool: #a775ff;
     --fl-out: #9fb0d0;
-    --fl-warn-ico: #e8bb62;
+    --fl-warn-ico: var(--amber);
 }
 
 .fnode-box {
-    fill: #1a1624;
+    fill: var(--node-fill);
     stroke: rgba(255, 255, 255, .09);
 }
 
 .fnode-primary .fnode-box {
-    fill: #1d1b33;
+    fill: var(--node-fill-primary);
     stroke: var(--accent-line);
 }
 
@@ -1866,7 +1942,7 @@ body.modal-open {
     font-family: var(--font);
     font-size: 15px;
     font-weight: 400;
-    fill: #ffffff;
+    fill: var(--node-label);
     letter-spacing: -.01em;
     text-anchor: middle;
 }
@@ -1887,7 +1963,7 @@ body.modal-open {
 
 /* Attached models and tools: one violet family, as n8n treats sub-nodes */
 .forb-ring {
-    fill: #1a1624;
+    fill: var(--node-fill);
     stroke: rgba(167, 117, 255, .38);
 }
 
@@ -1904,11 +1980,11 @@ body.modal-open {
 }
 
 .forb-c:first-of-type {
-    fill: #ffffff;
+    fill: var(--node-label);
 }
 
 .fpill-box {
-    fill: #1d1b33;
+    fill: var(--node-fill-primary);
     stroke: var(--accent-line);
 }
 
@@ -1987,15 +2063,105 @@ body.modal-open {
 }
 
 .fnode-wide .fnode-box {
-    fill: #1d1b33;
+    fill: var(--node-fill-primary);
     stroke: var(--accent-line);
 }
 
 /* Port labels ride a chip so wires pass behind them, never through */
 .fport-bg {
-    fill: #0f0a1c;
+    fill: var(--canvas-chip);
 }
 
 .section-dark .fport-bg {
-    fill: #07040f;
+    fill: var(--band-bg);
+}
+
+
+/* Light-theme component corrections */
+:root[data-theme="light"] {
+    --cta-bg: linear-gradient(30deg, #2563eb, #3b7bf6);
+}
+
+:root[data-theme="light"] .problem-icon {
+    background: #fff8ec;
+    border-color: #f0dcb0;
+}
+
+:root[data-theme="light"] .problem:hover {
+    border-color: #edc77a;
+}
+
+:root[data-theme="light"] .forb-ring {
+    stroke: rgba(124, 58, 237, .32);
+    fill: #ffffff;
+}
+
+:root[data-theme="light"] .fnode-chip {
+    fill: rgba(11, 18, 38, .04);
+    stroke: rgba(11, 18, 38, .08);
+}
+
+:root[data-theme="light"] .flow-canvas-bar span,
+:root[data-theme="light"] .visual-card-bar span {
+    background: var(--hairline-strong);
+}
+
+:root[data-theme="light"] .flow-canvas-bar p,
+:root[data-theme="light"] .visual-card-bar p,
+:root[data-theme="light"] .forb-c {
+    color: var(--text-faint);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex: none;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+}
+
+.theme-toggle svg {
+    width: 17px;
+    height: 17px;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-status.is-error {
+    color: var(--danger);
+}
+
+
+:root[data-theme="light"] .rail-badge {
+    color: var(--accent-strong);
+    border-color: rgba(37, 99, 235, .35);
 }

@@ -95,6 +95,25 @@
         });
     }
 
+    /* ---------- Theme toggle ---------- */
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        const label = t => t === 'light' ? 'Switch to dark theme' : 'Switch to light theme';
+        const current = () => document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        themeBtn.setAttribute('aria-label', label(current()));
+
+        themeBtn.addEventListener('click', () => {
+            const next = current() === 'light' ? 'dark' : 'light';
+            if (next === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            themeBtn.setAttribute('aria-label', label(next));
+            try { localStorage.setItem('la-theme', next); } catch (e) { /* private mode */ }
+        });
+    }
+
     /* ---------- Use-case flow tabs ---------- */
     const tablist = document.querySelector('.flow-rail');
     if (tablist) {
@@ -156,7 +175,7 @@
                 error.hidden = true;
             });
             statusEl.textContent = '';
-            statusEl.style.color = '';
+            statusEl.classList.remove('is-error');
         }
 
         function validate() {
@@ -270,7 +289,7 @@
                 showSuccess();
             } catch (err) {
                 statusEl.textContent = 'That didn\'t send. Please email ' + CONTACT_EMAIL + ' directly — or try again in a moment.';
-                statusEl.style.color = '#ff8f8f';
+                statusEl.classList.add('is-error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send enquiry';
